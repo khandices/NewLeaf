@@ -6,12 +6,20 @@
 //
 
 import SwiftUI
+import Firebase
+
 
 @main
 struct NewLeafApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
-    }
-}
+    init() {
+         FirebaseApp.configure()
+     }
+     
+     var body: some Scene {
+         WindowGroup {
+             ContentView()
+//             UserProfileView()
+         }
+     }
+ }
+
