@@ -14,7 +14,7 @@ struct UserProfileView: View {
     @ObservedObject var model = viewUserModel()
 
     var body: some View {
-        List(model.list) { user in
+        List(model.userList) { user in
             Text(user.username)
         }
     }

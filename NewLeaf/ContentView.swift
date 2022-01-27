@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import Foundation
 
 
 /* To read or write data from the database, you need an instance of FIRDatabaseReference:
@@ -39,26 +40,27 @@ struct ContentView: View {
     @State private var userPassword = ""
     @State private var userLocation = ""
     @State var isLoginMode = false
-
+    @ObservedObject var model = viewUserModel()
+    
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack (spacing: 16) {
+                    Image("NewLeaf (2)")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                            .frame(height: 200)
+                    
                     Picker(selection: $isLoginMode, label: Text("Picker here")) {
                         Text("Login")
                             .tag(true)
                         Text("Create Account")
                             .tag(false)
                     } .pickerStyle(SegmentedPickerStyle())
-                        .padding()
-
+                    
+                    
                     if !isLoginMode {
-                        Button {
-
-                        } label: {
-                            Image(systemName: "person.fill")
-                                .font(.system(size: 64))
-                        }
+                        
                         Section {
                             TextField("Username", text: $username )
                                 .padding(12)
@@ -104,6 +106,7 @@ struct ContentView: View {
                         .ignoresSafeArea()
             }
             .navigationTitle(isLoginMode ? "Log In" : "Create Account")
+    
         }
 
     }
@@ -112,11 +115,19 @@ struct ContentView: View {
         if isLoginMode {
             print("Should log into Firebase with existing creds")
         } else {
+            // call add data
+            model.addData(username: username, email: userEmail, password: userPassword, location: userLocation)
+            username = ""
+            userEmail = ""
+            userPassword = ""
+            userLocation = ""
             print("Registers a new account inside Firebase Auth and then stores image in storage somehow")
         }
     }
 
 
+    
+  
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
