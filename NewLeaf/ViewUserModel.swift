@@ -13,10 +13,10 @@ class viewUserModel: ObservableObject {
     
     @Published var userList = [User]()
     
-    func getData() {
+    func getAllUsers() {
         // get reference to the db //
         let db = Firestore.firestore()
-        
+    
         // read documents at a specific path //
         // two parameters are optional: first param will return the documents, second is returned error //
         db.collection("users").getDocuments { snapshot, error in
@@ -34,7 +34,6 @@ class viewUserModel: ObservableObject {
                             return User(id: user.documentID,
                                         username: user["username"] as? String ?? "",
                                         email: user["email"] as? String ?? "",
-                                        password: user["password"] as? String ?? "",
                                         location: user["location"] as? String ?? "")
                         }
                     }
@@ -46,17 +45,48 @@ class viewUserModel: ObservableObject {
         }
     }
         
-    func addData(username: String, email: String, password: String, location: String) {
+    
+//    func getOneUser(userToGet: User) {
+//        // get reference to the db //
+//        let db = Firestore.firestore()
+//        let currentUser = db.collection("users").document(userToGet.id)
+//        // read documents at a specific path //
+//        // two parameters are optional: first param will return the documents, second is returned error //
+//        currentUser.getDocument { snapshot, error in
+//            // check for errors
+//            if error == nil {
+//                //no errors
+//
+//                if let snapshot = snapshot {
+//                    // update the list property in the main thread
+//                    DispatchQueue.main.async {
+//                            // create a user item for each doc returned
+//                            return User(id: user.documentID,
+//                                        username: user["username"] as? String ?? "",
+//                                        email: user["email"] as? String ?? "",
+//                                        password: user["password"] as? String ?? "",
+//                                        location: user["location"] as? String ?? "")
+//                        }
+//                    }
+//                }
+//
+//            } else {
+//                //handle the error
+//                }
+//        }
+//    }
+
+    func addUser(email: String) {
         //get reference to the db
         let db = Firestore.firestore()
         
         //add doc to user collection
-        db.collection("users").addDocument(data: ["username" : username, "email": email, "password": password, "location": location]) { error in
+        db.collection("users").addDocument(data: ["email": email]) { error in
             //check for errors
             if error == nil {
                 //no errors
                 //call data to retrieve the latest data
-                self.getData()
+                self.getAllUsers()
                 
             } else {
                 //handle the error
@@ -64,27 +94,29 @@ class viewUserModel: ObservableObject {
         }
     }
     
-//    func deleteData(userToDelete: User) {
-//        //get reference to db
-//        let db = Firestore.firestore()
-//
-//        //specifiy doc to delete
-//        db.collection("users").document(userToDelete.id).delete { error in
-//            if error == nil {
-//                //no errors
-//                //remove document from userList
-//                // Update the UI in the main thread
-//                DispatchQueue.main.async {
-//                self.userList.removeAll{ user in
-//                    //check for te user to remove
-//                    return user.id == userToDelete.id}
-//                }
-//
-//            }
-//        }
-//    }
     
-    func updateData(userToUpdate: User) {
+    func deleteUser(userToDelete: User) {
+        //get reference to db
+        let db = Firestore.firestore()
+
+        //specifiy doc to delete
+        db.collection("users").document(userToDelete.id).delete { error in
+            if error == nil {
+                //no errors
+                //remove document from userList
+                // Update the UI in the main thread
+                DispatchQueue.main.async {
+                self.userList.removeAll{ user in
+                    //check for te user to remove
+                    return user.id == userToDelete.id}
+                }
+
+            }
+        }
+    }
+    
+    
+    func updateUser(userToUpdate: User) {
         //get reference to the db
         let db = Firestore.firestore()
         

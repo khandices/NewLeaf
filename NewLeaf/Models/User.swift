@@ -13,7 +13,6 @@ struct User: Identifiable {
     var id: String
     var username: String
     var email: String
-    var password: String
     var location: String
 //    var plantCards = [PlantCard]()
     

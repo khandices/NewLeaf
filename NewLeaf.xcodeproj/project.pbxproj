@@ -8,23 +8,41 @@
 
 /* Begin PBXBuildFile section */
 		ACD8481BA661FB8D9D69DAB9 /* Pods_NewLeaf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77D293E9EF043A2998D5DB88 /* Pods_NewLeaf.framework */; };
+		EC49CFF627A9C94B001E4E43 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49CFF527A9C94B001E4E43 /* UserProfile.swift */; };
+		EC49CFFA27AB03AD001E4E43 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EC49CFF927AB03AD001E4E43 /* .gitignore */; };
 		ECCB004227A24DD1001A57CC /* NewLeafApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB004127A24DD1001A57CC /* NewLeafApp.swift */; };
 		ECCB004427A24DD1001A57CC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB004327A24DD1001A57CC /* ContentView.swift */; };
 		ECCB004627A24DD7001A57CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECCB004527A24DD7001A57CC /* Assets.xcassets */; };
 		ECCB004927A24DD7001A57CC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECCB004827A24DD7001A57CC /* Preview Assets.xcassets */; };
 		ECCB005027A251FF001A57CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECCB004F27A251FF001A57CC /* GoogleService-Info.plist */; };
+		ECE5959327A307B100DDCB2A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE5959227A307B100DDCB2A /* User.swift */; };
+		ECE5959527A307EF00DDCB2A /* PlantCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE5959427A307EF00DDCB2A /* PlantCard.swift */; };
+		ECE5959727A30B5D00DDCB2A /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE5959627A30B5D00DDCB2A /* UserProfileView.swift */; };
+		ECE5959927A30D3000DDCB2A /* ViewUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE5959827A30D3000DDCB2A /* ViewUserModel.swift */; };
+		ECE5959B27A3101000DDCB2A /* TradePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE5959A27A3101000DDCB2A /* TradePost.swift */; };
+		ECE5959D27A310CD00DDCB2A /* ViewTradePostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE5959C27A310CD00DDCB2A /* ViewTradePostModel.swift */; };
+		ECE5959F27A310EA00DDCB2A /* TradePostTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE5959E27A310EA00DDCB2A /* TradePostTimelineView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		09021A4CA1116CA07ABA68F7 /* Pods-NewLeaf.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewLeaf.debug.xcconfig"; path = "Target Support Files/Pods-NewLeaf/Pods-NewLeaf.debug.xcconfig"; sourceTree = "<group>"; };
 		77D293E9EF043A2998D5DB88 /* Pods_NewLeaf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewLeaf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8DDDC54827301D77F1301EF /* Pods-NewLeaf.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewLeaf.release.xcconfig"; path = "Target Support Files/Pods-NewLeaf/Pods-NewLeaf.release.xcconfig"; sourceTree = "<group>"; };
+		EC49CFF527A9C94B001E4E43 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		EC49CFF927AB03AD001E4E43 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		ECCB003E27A24DD1001A57CC /* NewLeaf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewLeaf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECCB004127A24DD1001A57CC /* NewLeafApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLeafApp.swift; sourceTree = "<group>"; };
 		ECCB004327A24DD1001A57CC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		ECCB004527A24DD7001A57CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECCB004827A24DD7001A57CC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		ECCB004F27A251FF001A57CC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		ECE5959227A307B100DDCB2A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		ECE5959427A307EF00DDCB2A /* PlantCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCard.swift; sourceTree = "<group>"; };
+		ECE5959627A30B5D00DDCB2A /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		ECE5959827A30D3000DDCB2A /* ViewUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUserModel.swift; sourceTree = "<group>"; };
+		ECE5959A27A3101000DDCB2A /* TradePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradePost.swift; sourceTree = "<group>"; };
+		ECE5959C27A310CD00DDCB2A /* ViewTradePostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTradePostModel.swift; sourceTree = "<group>"; };
+		ECE5959E27A310EA00DDCB2A /* TradePostTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradePostTimelineView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,13 +71,34 @@
 				09021A4CA1116CA07ABA68F7 /* Pods-NewLeaf.debug.xcconfig */,
 				D8DDDC54827301D77F1301EF /* Pods-NewLeaf.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		EC49CFF727AAFF4B001E4E43 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EC49CFF527A9C94B001E4E43 /* UserProfile.swift */,
+				ECE5959427A307EF00DDCB2A /* PlantCard.swift */,
+				ECE5959A27A3101000DDCB2A /* TradePost.swift */,
+				ECE5959227A307B100DDCB2A /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EC49CFF827AAFF6B001E4E43 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				ECCB004327A24DD1001A57CC /* ContentView.swift */,
+				ECE5959627A30B5D00DDCB2A /* UserProfileView.swift */,
+				ECE5959E27A310EA00DDCB2A /* TradePostTimelineView.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		ECCB003527A24DD1001A57CC = {
 			isa = PBXGroup;
 			children = (
+				EC49CFF927AB03AD001E4E43 /* .gitignore */,
 				ECCB004027A24DD1001A57CC /* NewLeaf */,
 				ECCB003F27A24DD1001A57CC /* Products */,
 				AA2699DF19D1F2052857744D /* Pods */,
@@ -78,11 +117,14 @@
 		ECCB004027A24DD1001A57CC /* NewLeaf */ = {
 			isa = PBXGroup;
 			children = (
+				EC49CFF827AAFF6B001E4E43 /* Screens */,
+				EC49CFF727AAFF4B001E4E43 /* Models */,
 				ECCB004127A24DD1001A57CC /* NewLeafApp.swift */,
-				ECCB004327A24DD1001A57CC /* ContentView.swift */,
 				ECCB004F27A251FF001A57CC /* GoogleService-Info.plist */,
 				ECCB004527A24DD7001A57CC /* Assets.xcassets */,
 				ECCB004727A24DD7001A57CC /* Preview Content */,
+				ECE5959827A30D3000DDCB2A /* ViewUserModel.swift */,
+				ECE5959C27A310CD00DDCB2A /* ViewTradePostModel.swift */,
 			);
 			path = NewLeaf;
 			sourceTree = "<group>";
@@ -155,6 +197,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC49CFFA27AB03AD001E4E43 /* .gitignore in Resources */,
 				ECCB004927A24DD7001A57CC /* Preview Assets.xcassets in Resources */,
 				ECCB004627A24DD7001A57CC /* Assets.xcassets in Resources */,
 				ECCB005027A251FF001A57CC /* GoogleService-Info.plist in Resources */,
@@ -210,8 +253,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECE5959727A30B5D00DDCB2A /* UserProfileView.swift in Sources */,
+				ECE5959F27A310EA00DDCB2A /* TradePostTimelineView.swift in Sources */,
+				EC49CFF627A9C94B001E4E43 /* UserProfile.swift in Sources */,
+				ECE5959927A30D3000DDCB2A /* ViewUserModel.swift in Sources */,
+				ECE5959B27A3101000DDCB2A /* TradePost.swift in Sources */,
 				ECCB004427A24DD1001A57CC /* ContentView.swift in Sources */,
 				ECCB004227A24DD1001A57CC /* NewLeafApp.swift in Sources */,
+				ECE5959D27A310CD00DDCB2A /* ViewTradePostModel.swift in Sources */,
+				ECE5959327A307B100DDCB2A /* User.swift in Sources */,
+				ECE5959527A307EF00DDCB2A /* PlantCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,38 +8,19 @@
 import SwiftUI
 import Firebase
 import Foundation
+import FirebaseAuth
 
 
-/* To read or write data from the database, you need an instance of FIRDatabaseReference:
-
- var ref: DatabaseReference!
-
- ref = Database.database().reference()
- */
+ 
 struct ContentView: View {
 
-        // CREATE //
-        /*  Sets the value in the db.
-    self.ref.child("users").child(user.uid).setValue(["username": username])
-        */
-        /* Using setValue in this way overwrites data at the specified location, including any child nodes. However, you can still update a child without rewriting the entire object. If you want to allow users to update their profiles you could update the username as follows:
-         self.ref.child("users/\(user.uid)/username").setValue(username)
-         */
 
-        // READ //
-        /*
-         You can use the FIRDataEventTypeValue event to read the data at a given path, as it exists at the time of the event. This method is triggered once when the listener is attached and again every time the data, including any children, changes. The event callback is passed a snapshot containing all data at that location, including child data. If there is no data, the snapshot will return false when you call exists() and nil when you read its value property.
-
-         refHandle = postRef.observe(DataEventType.value, with: { snapshot in
-          // ...
-        })
-        */
-
-    @State private var username = ""
+    
     @State private var userEmail = ""
     @State private var userPassword = ""
-    @State private var userLocation = ""
+    
     @State var isLoginMode = false
+    
     @ObservedObject var model = viewUserModel()
     
     var body: some View {
@@ -48,8 +29,8 @@ struct ContentView: View {
                 VStack (spacing: 16) {
                     Image("NewLeaf (2)")
                         .resizable()
-                        .aspectRatio(contentMode: .fill)
-                            .frame(height: 200)
+                        .aspectRatio(contentMode: .fit)
+                            .frame(height: 150)
                     
                     Picker(selection: $isLoginMode, label: Text("Picker here")) {
                         Text("Login")
@@ -58,22 +39,7 @@ struct ContentView: View {
                             .tag(false)
                     } .pickerStyle(SegmentedPickerStyle())
                     
-                    
-                    if !isLoginMode {
-                        
-                        Section {
-                            TextField("Username", text: $username )
-                                .padding(12)
-                                .background(Color.white)
-                        }
-
-                        Section {
-                            TextField("Location", text: $userLocation)
-                                .padding(12)
-                                .background(Color.white)
-                        }
-                    }
-
+                
                     Section {
                         TextField("Email", text: $userEmail)
                             .keyboardType(.emailAddress)
@@ -100,27 +66,53 @@ struct ContentView: View {
                             Spacer()
                         } .background(Color.green)
                     }
+                    Text(self.loginStatusMessage)
+                        .foregroundColor(.red)
                 }
                 .padding()
                 .background(Color(.init(white: 0, alpha: 0.05)))
                         .ignoresSafeArea()
             }
             .navigationTitle(isLoginMode ? "Log In" : "Create Account")
+            .background(Color(.init(white:0, alpha: 0.05))
+                            .ignoresSafeArea())
     
         }
 
     }
-
+    
+    @State var loginStatusMessage = ""
+    
+    private func createAccount() {
+        Auth.auth().createUser(withEmail: userEmail, password: userPassword) { result, error in
+            if let error = error {
+                print("Failed to create user:" , error)
+                self.loginStatusMessage = "Failed to create user: \(error)"
+                return
+            }
+            self.loginStatusMessage = "Successfully created user: \(userEmail)"
+        }
+            
+    }
+    
+    private func loginUser() {
+        Auth.auth().signIn(withEmail: userEmail, password: userPassword) { result, error in
+            if let error = error {
+                print("Failed to login user:" , error)
+                self.loginStatusMessage = "Failed to login user: \(error)"
+                return
+            }
+            self.loginStatusMessage = "\(userEmail) successfully logged in!"
+        }
+    }
+    
     private func handleAction() {
         if isLoginMode {
-            print("Should log into Firebase with existing creds")
+            loginUser()
         } else {
-            // call add data
-            model.addData(username: username, email: userEmail, password: userPassword, location: userLocation)
-            username = ""
+            createAccount()
+            model.addUser(email: userEmail, password: userPassword)
             userEmail = ""
-            userPassword = ""
-            userLocation = ""
             print("Registers a new account inside Firebase Auth and then stores image in storage somehow")
         }
     }
