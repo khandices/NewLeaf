@@ -17,9 +17,8 @@ struct ContentView: View {
     @State private var userEmail = ""
     @State private var userPassword = ""
     
-    @State var isLoginMode = false
+    @State var isLoginMode = true
     
-    @ObservedObject var model = viewUserModel()
     
     var body: some View {
         NavigationView {
@@ -54,7 +53,14 @@ struct ContentView: View {
 
 
                     Button {
-                        handleAction()
+                        if isLoginMode {
+                            loginUser()
+                        } else {
+                            createAccount()
+//                            NavigationLink(destination: LoadingView(userEmail: userEmail, userID: userID)) {
+//                                Text("Create Account")
+//                            }
+                        }
                     } label: {
                         HStack {
                             Spacer()
@@ -91,7 +97,10 @@ struct ContentView: View {
                 return
             }
             userID = result?.user.uid ?? ""
+            print(userID)
             self.loginStatusMessage = "Successfully created user: \(userID)"
+            userEmail = ""
+            userPassword = ""
         }
             
     }
@@ -109,16 +118,20 @@ struct ContentView: View {
     
     
    
-    private func handleAction() {
-        if isLoginMode {
-            loginUser()
-        } else {
-            createAccount()
-            model.addUser(id: userID, email: userEmail)
-            userEmail = ""
-            print("Registers a new account inside Firebase Auth and then stores image in storage somehow")
-        }
-    }
+//    private func handleAction() {
+//        if isLoginMode {
+//            loginUser()
+//        } else {
+//            createAccount()
+//            userEmail = ""
+//            userPassword = ""
+//            NavigationLink(destination: View) {
+//                LoadingView
+//            }
+//            print("Registers a new account inside Firebase Auth and then stores image in storage somehow")
+//        }
+//    }
+    
 
 
     

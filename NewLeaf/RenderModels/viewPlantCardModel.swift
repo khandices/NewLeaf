@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import FirebaseAuth
+import Firebase
 
 
 //@Published var userList = [User]()
@@ -72,22 +74,28 @@ import Foundation
 //        }
 //
 //
-//func addPlant(plantName: String) {
-//    //get reference to the db
-//    let db = Firestore.firestore()
-//
-//    //add doc to user collection
-//    db.collection("plantcard").addDocument(data: ["name": plantName]) { error in
-//        //check for errors
-//        if error == nil {
-//            //no errors
-//            //call data to retrieve the latest data
+func addPlantCard(userID: String, plantCard: PlantCard) {
+    //get reference to the db
+    let db = Firestore.firestore()
+
+    //add doc to user collection
+    db.collection("users").document(userID).setData(["plantCards": plantCard], merge: true) { error in
+        //check for errors
+        if error == nil {
+            //no errors
+            //call data to retrieve the latest data
 //            self.getAllUsers()
-//
-//        } else {
-//            //handle the error
-//        }
-//    }
+            print("Plant Card: \(plantCard.name) created!")
+
+        } else {
+            //handle the error
+            print("Error creating Plant Card: \(plantCard.name)")
+        }
+    }
+
+}
+
+
 //}
 //
 //
@@ -120,3 +128,4 @@ import Foundation
 //}
 //}
 //
+

@@ -17,6 +17,7 @@ struct UserProfileView: View {
     var body: some View {
             
             VStack {
+                Text("user image placeholder")
                 Text("Username")
                 Text("Placeholder for user bio")
                 Text("Location")

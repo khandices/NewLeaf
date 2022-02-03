@@ -20,8 +20,8 @@ struct NewLeafApp: App {
      var body: some Scene {
          WindowGroup {
              ContentView()
-             UserProfileView()
-             PlantCardFormView()
+//             UserProfileView()
+//             PlantCardFormView()
          }
      }
  }

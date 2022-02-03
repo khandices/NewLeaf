@@ -43,7 +43,7 @@ struct PlantCardFormView: View {
     let plantList = PlantDataLoader().plantData
     
 
-    @State private var selectedPlant = ""
+    @State private var selectedPlant = "Alocosia Frydek"
    
     
 //    @ObservedObject var model = viewPlantModel()
@@ -57,12 +57,15 @@ struct PlantCardFormView: View {
                         .aspectRatio(contentMode: .fit)
                             .frame(height: 150)
                     
-                    Picker("Please choose your plant", selection: $selectedPlant) {
-                        ForEach(plantList, id: \.self) { plant in
-                            Text(plant.name)
-
-                        }
-                    }
+                    Picker(selection: $selectedPlant,
+                           label: Text("Please choose your plant"),
+                           content: {
+                                ForEach(plantList, id: \.self) { plant in
+                                    Text(plant.name).tag(plant.name)
+                                }
+                            }
+                    )
+                        .pickerStyle(WheelPickerStyle())
                     
                     Text("You selected: \(selectedPlant)")
                     
@@ -97,7 +100,7 @@ struct PlantCardFormView: View {
 //    @State var userID = ""
 //
 //    private func createPlantCard() {
-//      model.addPlantCard(name: selectedPlant )
+//      model.addPlantCard(userID: String, plantCard: PlantCard)
 //        }
 //
 //    }
