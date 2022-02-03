@@ -46,9 +46,7 @@ struct UserProfileView: View {
         
 struct UserProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
             UserProfileView()
-        }
     }
 }
 

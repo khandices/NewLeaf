@@ -10,6 +10,10 @@
 		ACD8481BA661FB8D9D69DAB9 /* Pods_NewLeaf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77D293E9EF043A2998D5DB88 /* Pods_NewLeaf.framework */; };
 		EC49CFF627A9C94B001E4E43 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49CFF527A9C94B001E4E43 /* UserProfile.swift */; };
 		EC49CFFA27AB03AD001E4E43 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EC49CFF927AB03AD001E4E43 /* .gitignore */; };
+		EC49CFFC27AB2A69001E4E43 /* plantInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = EC49CFFB27AB2A69001E4E43 /* plantInfo.json */; };
+		EC49CFFF27AB5316001E4E43 /* PlantCardFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49CFFE27AB5316001E4E43 /* PlantCardFormView.swift */; };
+		EC49D00127AB59DB001E4E43 /* viewPlantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49D00027AB59DB001E4E43 /* viewPlantModel.swift */; };
+		EC49D00327AB5F7B001E4E43 /* PlantData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49D00227AB5F7B001E4E43 /* PlantData.swift */; };
 		ECCB004227A24DD1001A57CC /* NewLeafApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB004127A24DD1001A57CC /* NewLeafApp.swift */; };
 		ECCB004427A24DD1001A57CC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB004327A24DD1001A57CC /* ContentView.swift */; };
 		ECCB004627A24DD7001A57CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECCB004527A24DD7001A57CC /* Assets.xcassets */; };
@@ -30,6 +34,10 @@
 		D8DDDC54827301D77F1301EF /* Pods-NewLeaf.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewLeaf.release.xcconfig"; path = "Target Support Files/Pods-NewLeaf/Pods-NewLeaf.release.xcconfig"; sourceTree = "<group>"; };
 		EC49CFF527A9C94B001E4E43 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		EC49CFF927AB03AD001E4E43 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		EC49CFFB27AB2A69001E4E43 /* plantInfo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = plantInfo.json; sourceTree = "<group>"; };
+		EC49CFFE27AB5316001E4E43 /* PlantCardFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCardFormView.swift; sourceTree = "<group>"; };
+		EC49D00027AB59DB001E4E43 /* viewPlantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewPlantModel.swift; sourceTree = "<group>"; };
+		EC49D00227AB5F7B001E4E43 /* PlantData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantData.swift; sourceTree = "<group>"; };
 		ECCB003E27A24DD1001A57CC /* NewLeaf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewLeaf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECCB004127A24DD1001A57CC /* NewLeafApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLeafApp.swift; sourceTree = "<group>"; };
 		ECCB004327A24DD1001A57CC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -81,6 +89,7 @@
 				ECE5959427A307EF00DDCB2A /* PlantCard.swift */,
 				ECE5959A27A3101000DDCB2A /* TradePost.swift */,
 				ECE5959227A307B100DDCB2A /* User.swift */,
+				EC49D00227AB5F7B001E4E43 /* PlantData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -88,11 +97,22 @@
 		EC49CFF827AAFF6B001E4E43 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				EC49CFFE27AB5316001E4E43 /* PlantCardFormView.swift */,
 				ECCB004327A24DD1001A57CC /* ContentView.swift */,
 				ECE5959627A30B5D00DDCB2A /* UserProfileView.swift */,
 				ECE5959E27A310EA00DDCB2A /* TradePostTimelineView.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		EC49CFFD27AB52CB001E4E43 /* RenderModels */ = {
+			isa = PBXGroup;
+			children = (
+				ECE5959C27A310CD00DDCB2A /* ViewTradePostModel.swift */,
+				ECE5959827A30D3000DDCB2A /* ViewUserModel.swift */,
+				EC49D00027AB59DB001E4E43 /* viewPlantModel.swift */,
+			);
+			path = RenderModels;
 			sourceTree = "<group>";
 		};
 		ECCB003527A24DD1001A57CC = {
@@ -117,14 +137,14 @@
 		ECCB004027A24DD1001A57CC /* NewLeaf */ = {
 			isa = PBXGroup;
 			children = (
+				EC49CFFD27AB52CB001E4E43 /* RenderModels */,
 				EC49CFF827AAFF6B001E4E43 /* Screens */,
 				EC49CFF727AAFF4B001E4E43 /* Models */,
 				ECCB004127A24DD1001A57CC /* NewLeafApp.swift */,
 				ECCB004F27A251FF001A57CC /* GoogleService-Info.plist */,
 				ECCB004527A24DD7001A57CC /* Assets.xcassets */,
 				ECCB004727A24DD7001A57CC /* Preview Content */,
-				ECE5959827A30D3000DDCB2A /* ViewUserModel.swift */,
-				ECE5959C27A310CD00DDCB2A /* ViewTradePostModel.swift */,
+				EC49CFFB27AB2A69001E4E43 /* plantInfo.json */,
 			);
 			path = NewLeaf;
 			sourceTree = "<group>";
@@ -201,6 +221,7 @@
 				ECCB004927A24DD7001A57CC /* Preview Assets.xcassets in Resources */,
 				ECCB004627A24DD7001A57CC /* Assets.xcassets in Resources */,
 				ECCB005027A251FF001A57CC /* GoogleService-Info.plist in Resources */,
+				EC49CFFC27AB2A69001E4E43 /* plantInfo.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +279,9 @@
 				EC49CFF627A9C94B001E4E43 /* UserProfile.swift in Sources */,
 				ECE5959927A30D3000DDCB2A /* ViewUserModel.swift in Sources */,
 				ECE5959B27A3101000DDCB2A /* TradePost.swift in Sources */,
+				EC49CFFF27AB5316001E4E43 /* PlantCardFormView.swift in Sources */,
+				EC49D00327AB5F7B001E4E43 /* PlantData.swift in Sources */,
+				EC49D00127AB59DB001E4E43 /* viewPlantModel.swift in Sources */,
 				ECCB004427A24DD1001A57CC /* ContentView.swift in Sources */,
 				ECCB004227A24DD1001A57CC /* NewLeafApp.swift in Sources */,
 				ECE5959D27A310CD00DDCB2A /* ViewTradePostModel.swift in Sources */,

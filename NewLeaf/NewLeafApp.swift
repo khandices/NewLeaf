@@ -12,6 +12,7 @@ import Foundation
 
 @main
 struct NewLeafApp: App {
+    
     init() {
          FirebaseApp.configure()
      }
@@ -19,7 +20,8 @@ struct NewLeafApp: App {
      var body: some Scene {
          WindowGroup {
              ContentView()
-//             UserProfileView()
+             UserProfileView()
+             PlantCardFormView()
          }
      }
  }

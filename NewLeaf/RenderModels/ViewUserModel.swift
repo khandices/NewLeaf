@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+import SwiftUI
 
 
 class viewUserModel: ObservableObject {
@@ -46,7 +47,12 @@ class viewUserModel: ObservableObject {
     }
         
     
-//    func getOneUser(userToGet: User) {
+//    func fetchcurrentUser() {
+//        guard let uid = ""
+//                FirebaseManager.shared.auth
+//                .currentUser?.uid else { return }
+    
+
 //        // get reference to the db //
 //        let db = Firestore.firestore()
 //        let currentUser = db.collection("users").document(userToGet.id)
@@ -59,24 +65,18 @@ class viewUserModel: ObservableObject {
 //
 //                if let snapshot = snapshot {
 //                    // update the list property in the main thread
-//                    DispatchQueue.main.async {
-//                            // create a user item for each doc returned
-//                            return User(id: user.documentID,
-//                                        username: user["username"] as? String ?? "",
-//                                        email: user["email"] as? String ?? "",
-//                                        password: user["password"] as? String ?? "",
-//                                        location: user["location"] as? String ?? "")
-//                        }
-//                    }
+//                    let username = snapshot.get("username")
+//                    let userEmail = snapshot.get("email")
+//                    let userLocation = snapshot.get("location")
+//                    return User(id: currentUser.documentID, username: username as? String ?? "", email: userEmail as? String ?? "", location: userLocation as? String ?? "")
 //                }
-//
 //            } else {
 //                //handle the error
 //                }
 //        }
-//    }
 
-    func addUser(email: String) {
+
+    func addUser(id: String, email: String) {
         //get reference to the db
         let db = Firestore.firestore()
         

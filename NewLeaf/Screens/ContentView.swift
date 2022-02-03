@@ -14,8 +14,6 @@ import FirebaseAuth
  
 struct ContentView: View {
 
-
-    
     @State private var userEmail = ""
     @State private var userPassword = ""
     
@@ -76,12 +74,14 @@ struct ContentView: View {
             .navigationTitle(isLoginMode ? "Log In" : "Create Account")
             .background(Color(.init(white:0, alpha: 0.05))
                             .ignoresSafeArea())
-    
         }
+    
 
     }
     
+    
     @State var loginStatusMessage = ""
+    @State var userID = ""
     
     private func createAccount() {
         Auth.auth().createUser(withEmail: userEmail, password: userPassword) { result, error in
@@ -90,7 +90,8 @@ struct ContentView: View {
                 self.loginStatusMessage = "Failed to create user: \(error)"
                 return
             }
-            self.loginStatusMessage = "Successfully created user: \(userEmail)"
+            userID = result?.user.uid ?? ""
+            self.loginStatusMessage = "Successfully created user: \(userID)"
         }
             
     }
@@ -106,12 +107,14 @@ struct ContentView: View {
         }
     }
     
+    
+   
     private func handleAction() {
         if isLoginMode {
             loginUser()
         } else {
             createAccount()
-            model.addUser(email: userEmail, password: userPassword)
+            model.addUser(id: userID, email: userEmail)
             userEmail = ""
             print("Registers a new account inside Firebase Auth and then stores image in storage somehow")
         }
