@@ -44,9 +44,8 @@ struct PlantCardFormView: View {
     
 
     @State private var selectedPlant = "Alocosia Frydek"
-   
     
-//    @ObservedObject var model = viewPlantModel()
+    @ObservedObject var model = viewPlantCardModel()
     
     var body: some View {
         NavigationView {
@@ -80,7 +79,7 @@ struct PlantCardFormView: View {
                             Spacer()
                         } .background(Color.green)
                     }
-                    Text(self.plantSuccessMessage)
+                    
                         
                 }
                 .padding()
@@ -95,12 +94,11 @@ struct PlantCardFormView: View {
     }
     
     
-//
-    @State var plantSuccessMessage = ""
-//    @State var userID = ""
+
 //
 //    private func createPlantCard() {
 //      model.addPlantCard(userID: String, plantCard: PlantCard)
+        
 //        }
 //
 //    }

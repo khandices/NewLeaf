@@ -19,6 +19,7 @@ struct ContentView: View {
     
     @State var isLoginMode = true
     
+    @ObservedObject var model = viewUserModel()
     
     var body: some View {
         NavigationView {
@@ -55,11 +56,11 @@ struct ContentView: View {
                     Button {
                         if isLoginMode {
                             loginUser()
+//                            NavigationLink(destination: UserProfileView) {
+//                            }
                         } else {
                             createAccount()
-//                            NavigationLink(destination: LoadingView(userEmail: userEmail, userID: userID)) {
-//                                Text("Create Account")
-//                            }
+//
                         }
                     } label: {
                         HStack {
@@ -101,6 +102,7 @@ struct ContentView: View {
             self.loginStatusMessage = "Successfully created user: \(userID)"
             userEmail = ""
             userPassword = ""
+            model.addUser(id: userID, email: userEmail)
         }
             
     }

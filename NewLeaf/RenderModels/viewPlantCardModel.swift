@@ -9,6 +9,37 @@ import Foundation
 import FirebaseAuth
 import Firebase
 
+class viewPlantCardModel: ObservableObject {
+    
+    func addPlantCard(name: String, info: String) {
+        //get reference to the db
+        let db = Firestore.firestore()
+
+        //add doc to user collection
+        db.collection("plant cards").addDocument(data: ["name": name, "info": info]) { error in
+            //check for errors
+            if error == nil {
+                //no errors
+//                let plantID = DocumentReference.
+                print("*******Successfully added plant card!********")
+            } else {
+                //handle the error
+                print("*******Error creating Plant Card:**********")
+            }
+        }
+
+    }
+    
+//    func addPlantToUser(userID: String, plantID: String) {
+//       let db = Firestore.firestore()
+//
+//        db.collection("users").document(userID).setData(["plant cards": plantID], merge: true)
+//    }
+    
+    
+    
+    
+}
 
 //@Published var userList = [User]()
 //
@@ -74,26 +105,10 @@ import Firebase
 //        }
 //
 //
-func addPlantCard(userID: String, plantCard: PlantCard) {
-    //get reference to the db
-    let db = Firestore.firestore()
 
-    //add doc to user collection
-    db.collection("users").document(userID).setData(["plantCards": plantCard], merge: true) { error in
-        //check for errors
-        if error == nil {
-            //no errors
-            //call data to retrieve the latest data
-//            self.getAllUsers()
-            print("Plant Card: \(plantCard.name) created!")
 
-        } else {
-            //handle the error
-            print("Error creating Plant Card: \(plantCard.name)")
-        }
-    }
 
-}
+
 
 
 //}

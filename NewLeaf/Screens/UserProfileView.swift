@@ -12,7 +12,8 @@ import Firebase
 struct UserProfileView: View {
     
     @ObservedObject var model = viewUserModel()
-//    @State private var draftProfile = Profile.username
+    @State private var userEmail = ""
+    @State private var userID = ""
 
     var body: some View {
             

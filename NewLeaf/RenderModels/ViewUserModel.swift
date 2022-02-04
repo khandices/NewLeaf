@@ -76,12 +76,12 @@ class viewUserModel: ObservableObject {
 //        }
 
 
-    func addUser(email: String) {
+    func addUser(id: String, email: String) {
         //get reference to the db
         let db = Firestore.firestore()
         
         //add doc to user collection
-        db.collection("users").document(email).setData(["bio": "", "id": "", "location": "", "username": ""]) { error in
+        db.collection("users").document(id).setData(["email": email, "bio": "", "id": "", "location": "", "username": ""]) { error in
             //check for errors
             if error == nil {
                 //no errors
