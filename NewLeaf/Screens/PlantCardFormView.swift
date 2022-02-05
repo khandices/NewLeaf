@@ -16,6 +16,7 @@ public class PlantDataLoader {
     init() {
         loadData()
         sortData()
+        print(plantData)
     }
     
     func loadData() {
@@ -38,12 +39,26 @@ public class PlantDataLoader {
     }
 }
 
+
+
 struct PlantCardFormView: View {
 
     let plantList = PlantDataLoader().plantData
     
+    
+//    @State var selectedPlantInfo = ""
+//
+//    func getPlantInfo(plantName: String){
+//        for plant in plantList {
+//            if plant.name == plantName {
+//               selectedPlantInfo = plant.info
+//            }
+//        }
+//
+//    }
 
-    @State private var selectedPlant = "Alocosia Frydek"
+    @State private var selectedPlant = ""
+//    @State private var selectedPlantInfo = plantList[$selectedPlant]
     
     @ObservedObject var model = viewPlantCardModel()
     
@@ -60,16 +75,19 @@ struct PlantCardFormView: View {
                            label: Text("Please choose your plant"),
                            content: {
                                 ForEach(plantList, id: \.self) { plant in
-                                    Text(plant.name).tag(plant.name)
+                                    Text(plant.name).tag(plant.info)
                                 }
                             }
                     )
                         .pickerStyle(WheelPickerStyle())
-                    
+                        
                     Text("You selected: \(selectedPlant)")
+                   
                     
                     Button {
-            
+//                        getPlantInfo(plantName: selectedPlant)
+//                        print("\(selectedPlant) and \(selectedPlantInfo)")
+//                        model.addPlantCard(name: selectedPlant, info: selectedPlantInfo)
                     } label: {
                         HStack {
                             Spacer()
@@ -101,17 +119,6 @@ struct PlantCardFormView: View {
         
 //        }
 //
-//    }
-//
-//    private func loginUser() {
-//        Auth.auth().signIn(withEmail: userEmail, password: userPassword) { result, error in
-//            if let error = error {
-//                print("Failed to login user:" , error)
-//                self.loginStatusMessage = "Failed to login user: \(error)"
-//                return
-//            }
-//            self.loginStatusMessage = "\(userEmail) successfully logged in!"
-//        }
 //    }
 //
 

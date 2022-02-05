@@ -1,38 +1,31 @@
 //
-//  ContentView.swift
+//  CreateUserView.swift
 //  NewLeaf
 //
-//  Created by Khandice Schuhmann on 1/26/22.
+//  Created by Khandice Schuhmann on 2/5/22.
 //
 
-import SwiftUI
-import Firebase
 import Foundation
 import FirebaseAuth
+import Firebase
+import SwiftUI
 
 
- 
-struct ContentView: View {
+struct CreateUserView: View {
 
-    var body: some View {
-        NavigationView{
-            LoginView()
-        }
-    }
-}
-    
-struct LoginView: View {
     @State private var userEmail = ""
     @State private var userPassword = ""
+   
+    @ObservedObject var model = viewUserModel()
     
     var body: some View {
-        ScrollView{
+        ScrollView {
             VStack (spacing: 16) {
                 Image("NewLeaf (2)")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(height: 180)
-                
+                        .frame(height: 180)
+  
                 Section {
                     TextField("Email", text: $userEmail)
                         .keyboardType(.emailAddress)
@@ -40,57 +33,65 @@ struct LoginView: View {
                         .padding(12)
                         .background(Color.white)
                 }
+
                 Section {
                     SecureField("Password", text: $userPassword)
                         .padding(12)
                         .background(Color.white)
                 }
+
+
                 Button {
-                    loginUser()
+                        createAccount()
                 } label: {
                     HStack {
                         Spacer()
-                        Text("Log In")
+                        Text("Create Account")
                             .foregroundColor(.white)
                             .padding(.vertical, 10)
                         Spacer()
                     } .background(Color.green)
                     
                 }
-                Text(self.loginStatusMessage)
+                Text(self.createUserStatusMessage)
                     .foregroundColor(.red)
-            
-            NavigationLink(destination: CreateUserView(), label: {
-                Text("Not a user? Create an account here")
-            })
             }
             .padding()
             .background(Color(.init(white: 0, alpha: 0.05)))
-                        .ignoresSafeArea()
+                    .ignoresSafeArea()
         }
+//        .offset(y: 0)
     }
-            
     
 
-    @State var loginStatusMessage = ""
     
-    private func loginUser() {
-        Auth.auth().signIn(withEmail: userEmail, password: userPassword) { result, error in
+    
+    
+    @State var createUserStatusMessage = ""
+    @State var userID = ""
+    
+    private func createAccount() {
+        Auth.auth().createUser(withEmail: userEmail, password: userPassword) { result, error in
             if let error = error {
-                print("Failed to login user:" , error)
-                self.loginStatusMessage = "Failed to login user: \(error)"
+                print("Failed to create user:" , error)
+                self.createUserStatusMessage = "Failed to create user: \(error)"
                 return
             }
-            self.loginStatusMessage = "\(userEmail) successfully logged in!"
+            userID = result?.user.uid ?? ""
+            print(userID)
+            self.createUserStatusMessage = "Successfully created user: \(userID)"
+            userEmail = ""
+            userPassword = ""
+            model.addUser(id: userID, email: userEmail)
         }
+            
     }
     
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct CreateUserView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        CreateUserView()
     }
 }
-
 

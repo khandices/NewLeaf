@@ -19,9 +19,9 @@ struct NewLeafApp: App {
      
      var body: some Scene {
          WindowGroup {
-             ContentView()
+//             ContentView()
 //             UserProfileView()
-//             PlantCardFormView()
+             PlantCardFormView()
          }
      }
  }
