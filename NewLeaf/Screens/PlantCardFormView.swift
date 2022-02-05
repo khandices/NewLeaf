@@ -16,7 +16,6 @@ public class PlantDataLoader {
     init() {
         loadData()
         sortData()
-        print(plantData)
     }
     
     func loadData() {
@@ -42,40 +41,33 @@ public class PlantDataLoader {
 
 
 struct PlantCardFormView: View {
-
+    var userID: String
+    
     let plantList = PlantDataLoader().plantData
-    
-    
-//    @State var selectedPlantInfo = ""
-//
-//    func getPlantInfo(plantName: String){
-//        for plant in plantList {
-//            if plant.name == plantName {
-//               selectedPlantInfo = plant.info
-//            }
-//        }
-//
-//    }
-
-    @State private var selectedPlant = ""
-//    @State private var selectedPlantInfo = plantList[$selectedPlant]
-    
     @ObservedObject var model = viewPlantCardModel()
+    @State private var selectedPlant = ""
+    @State var selectedPlantInfo = ""
+
+    func getPlantInfo(plantName: String){
+        for plant in plantList {
+            if plant.name == plantName {
+                self.selectedPlantInfo = plant.info
+            }
+        }
+
+    }
+    
     
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack (spacing: 16) {
-                    Image("NewLeaf (2)")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                            .frame(height: 150)
                     
                     Picker(selection: $selectedPlant,
                            label: Text("Please choose your plant"),
                            content: {
                                 ForEach(plantList, id: \.self) { plant in
-                                    Text(plant.name).tag(plant.info)
+                                    Text(plant.name).tag(plant.name)
                                 }
                             }
                     )
@@ -85,17 +77,21 @@ struct PlantCardFormView: View {
                    
                     
                     Button {
-//                        getPlantInfo(plantName: selectedPlant)
-//                        print("\(selectedPlant) and \(selectedPlantInfo)")
-//                        model.addPlantCard(name: selectedPlant, info: selectedPlantInfo)
+                        getPlantInfo(plantName: selectedPlant)
+                        model.addPlantCard(name: selectedPlant, info: selectedPlantInfo)
+//                        model.addPlantToUser(userID: userID, plantID: String)
                     } label: {
                         HStack {
                             Spacer()
                             Text("Create Plant Card!")
+                                .bold()
                                 .foregroundColor(.white)
                                 .padding(.vertical, 10)
+                                
                             Spacer()
-                        } .background(Color.green)
+                        }
+                        .background(Color.green)
+                        .cornerRadius(10)
                     }
                     
                         
@@ -113,14 +109,6 @@ struct PlantCardFormView: View {
     
     
 
-//
-//    private func createPlantCard() {
-//      model.addPlantCard(userID: String, plantCard: PlantCard)
-        
-//        }
-//
-//    }
-//
 
 
 

@@ -20,7 +20,6 @@ class viewPlantCardModel: ObservableObject {
             //check for errors
             if error == nil {
                 //no errors
-//                let plantID = DocumentReference.
                 print("*******Successfully added plant card!********")
             } else {
                 //handle the error
