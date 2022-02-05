@@ -51,10 +51,14 @@ struct LoginView: View {
                     HStack {
                         Spacer()
                         Text("Log In")
+                            .bold()
                             .foregroundColor(.white)
                             .padding(.vertical, 10)
                         Spacer()
                     } .background(Color.green)
+                        .frame(width: 200)
+                        .cornerRadius(10)
+                    
                     
                 }
                 Text(self.loginStatusMessage)
@@ -62,6 +66,7 @@ struct LoginView: View {
             
             NavigationLink(destination: CreateUserView(), label: {
                 Text("Not a user? Create an account here")
+                    .bold()
             })
             }
             .padding()

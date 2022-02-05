@@ -47,10 +47,13 @@ struct CreateUserView: View {
                     HStack {
                         Spacer()
                         Text("Create Account")
+                            .bold()
                             .foregroundColor(.white)
                             .padding(.vertical, 10)
                         Spacer()
                     } .background(Color.green)
+                        .cornerRadius(10)
+                        .frame(width: 200)
                     
                 }
                 Text(self.createUserStatusMessage)
@@ -60,7 +63,7 @@ struct CreateUserView: View {
             .background(Color(.init(white: 0, alpha: 0.05)))
                     .ignoresSafeArea()
         }
-//        .offset(y: 0)
+
     }
     
 
