@@ -14,6 +14,6 @@ struct User: Identifiable {
     var username: String
     var email: String
     var location: String
-//    var plantCards = [PlantCard]()
+    var bio: String
     
 }

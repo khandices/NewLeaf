@@ -40,7 +40,6 @@ struct CreateUserView: View {
                         .background(Color.white)
                 }
 
-
                 Button {
                         createAccount()
                 } label: {
@@ -65,9 +64,6 @@ struct CreateUserView: View {
         }
 
     }
-    
-
-    
     
     
     @State var createUserStatusMessage = ""

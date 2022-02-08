@@ -14,20 +14,21 @@
 		EC49CFFF27AB5316001E4E43 /* PlantCardFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49CFFE27AB5316001E4E43 /* PlantCardFormView.swift */; };
 		EC49D00127AB59DB001E4E43 /* viewPlantCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49D00027AB59DB001E4E43 /* viewPlantCardModel.swift */; };
 		EC49D00327AB5F7B001E4E43 /* PlantData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49D00227AB5F7B001E4E43 /* PlantData.swift */; };
-		EC49D00527AC8955001E4E43 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49D00427AC8955001E4E43 /* LoadingView.swift */; };
+		EC49D00527AC8955001E4E43 /* HomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49D00427AC8955001E4E43 /* HomepageView.swift */; };
 		ECCB004227A24DD1001A57CC /* NewLeafApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB004127A24DD1001A57CC /* NewLeafApp.swift */; };
 		ECCB004427A24DD1001A57CC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB004327A24DD1001A57CC /* ContentView.swift */; };
 		ECCB004627A24DD7001A57CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECCB004527A24DD7001A57CC /* Assets.xcassets */; };
 		ECCB004927A24DD7001A57CC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECCB004827A24DD7001A57CC /* Preview Assets.xcassets */; };
 		ECCB005027A251FF001A57CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECCB004F27A251FF001A57CC /* GoogleService-Info.plist */; };
 		ECDA0AAE27AF1FAD0023F366 /* CreateUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDA0AAD27AF1FAD0023F366 /* CreateUserView.swift */; };
+		ECDA0AB027AF5CD70023F366 /* TradePostFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDA0AAF27AF5CD60023F366 /* TradePostFormView.swift */; };
 		ECE5959327A307B100DDCB2A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE5959227A307B100DDCB2A /* User.swift */; };
 		ECE5959527A307EF00DDCB2A /* PlantCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE5959427A307EF00DDCB2A /* PlantCard.swift */; };
 		ECE5959727A30B5D00DDCB2A /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE5959627A30B5D00DDCB2A /* UserProfileView.swift */; };
 		ECE5959927A30D3000DDCB2A /* ViewUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE5959827A30D3000DDCB2A /* ViewUserModel.swift */; };
 		ECE5959B27A3101000DDCB2A /* TradePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE5959A27A3101000DDCB2A /* TradePost.swift */; };
 		ECE5959D27A310CD00DDCB2A /* ViewTradePostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE5959C27A310CD00DDCB2A /* ViewTradePostModel.swift */; };
-		ECE5959F27A310EA00DDCB2A /* TradePostTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE5959E27A310EA00DDCB2A /* TradePostTimelineView.swift */; };
+		ECE5959F27A310EA00DDCB2A /* MarketplaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE5959E27A310EA00DDCB2A /* MarketplaceView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +41,7 @@
 		EC49CFFE27AB5316001E4E43 /* PlantCardFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCardFormView.swift; sourceTree = "<group>"; };
 		EC49D00027AB59DB001E4E43 /* viewPlantCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewPlantCardModel.swift; sourceTree = "<group>"; };
 		EC49D00227AB5F7B001E4E43 /* PlantData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantData.swift; sourceTree = "<group>"; };
-		EC49D00427AC8955001E4E43 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		EC49D00427AC8955001E4E43 /* HomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageView.swift; sourceTree = "<group>"; };
 		ECCB003E27A24DD1001A57CC /* NewLeaf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewLeaf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECCB004127A24DD1001A57CC /* NewLeafApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLeafApp.swift; sourceTree = "<group>"; };
 		ECCB004327A24DD1001A57CC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,13 +49,14 @@
 		ECCB004827A24DD7001A57CC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		ECCB004F27A251FF001A57CC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		ECDA0AAD27AF1FAD0023F366 /* CreateUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserView.swift; sourceTree = "<group>"; };
+		ECDA0AAF27AF5CD60023F366 /* TradePostFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradePostFormView.swift; sourceTree = "<group>"; };
 		ECE5959227A307B100DDCB2A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ECE5959427A307EF00DDCB2A /* PlantCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCard.swift; sourceTree = "<group>"; };
 		ECE5959627A30B5D00DDCB2A /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		ECE5959827A30D3000DDCB2A /* ViewUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUserModel.swift; sourceTree = "<group>"; };
 		ECE5959A27A3101000DDCB2A /* TradePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradePost.swift; sourceTree = "<group>"; };
 		ECE5959C27A310CD00DDCB2A /* ViewTradePostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTradePostModel.swift; sourceTree = "<group>"; };
-		ECE5959E27A310EA00DDCB2A /* TradePostTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradePostTimelineView.swift; sourceTree = "<group>"; };
+		ECE5959E27A310EA00DDCB2A /* MarketplaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketplaceView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,9 +106,10 @@
 				EC49CFFE27AB5316001E4E43 /* PlantCardFormView.swift */,
 				ECCB004327A24DD1001A57CC /* ContentView.swift */,
 				ECE5959627A30B5D00DDCB2A /* UserProfileView.swift */,
-				ECE5959E27A310EA00DDCB2A /* TradePostTimelineView.swift */,
-				EC49D00427AC8955001E4E43 /* LoadingView.swift */,
+				ECE5959E27A310EA00DDCB2A /* MarketplaceView.swift */,
+				EC49D00427AC8955001E4E43 /* HomepageView.swift */,
 				ECDA0AAD27AF1FAD0023F366 /* CreateUserView.swift */,
+				ECDA0AAF27AF5CD60023F366 /* TradePostFormView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -282,12 +285,13 @@
 			files = (
 				ECE5959727A30B5D00DDCB2A /* UserProfileView.swift in Sources */,
 				ECDA0AAE27AF1FAD0023F366 /* CreateUserView.swift in Sources */,
-				ECE5959F27A310EA00DDCB2A /* TradePostTimelineView.swift in Sources */,
+				ECE5959F27A310EA00DDCB2A /* MarketplaceView.swift in Sources */,
 				EC49CFF627A9C94B001E4E43 /* UserProfile.swift in Sources */,
 				ECE5959927A30D3000DDCB2A /* ViewUserModel.swift in Sources */,
 				ECE5959B27A3101000DDCB2A /* TradePost.swift in Sources */,
-				EC49D00527AC8955001E4E43 /* LoadingView.swift in Sources */,
+				EC49D00527AC8955001E4E43 /* HomepageView.swift in Sources */,
 				EC49CFFF27AB5316001E4E43 /* PlantCardFormView.swift in Sources */,
+				ECDA0AB027AF5CD70023F366 /* TradePostFormView.swift in Sources */,
 				EC49D00327AB5F7B001E4E43 /* PlantData.swift in Sources */,
 				EC49D00127AB59DB001E4E43 /* viewPlantCardModel.swift in Sources */,
 				ECCB004427A24DD1001A57CC /* ContentView.swift in Sources */,

@@ -8,9 +8,6 @@
 import Foundation
 import SwiftUI
 
-
-
-
 struct PlantData: Codable, Hashable {
     
     var name: String

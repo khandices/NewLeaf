@@ -35,7 +35,8 @@ class viewUserModel: ObservableObject {
                             return User(id: user.documentID,
                                         username: user["username"] as? String ?? "",
                                         email: user["email"] as? String ?? "",
-                                        location: user["location"] as? String ?? "")
+                                        location: user["location"] as? String ?? "",
+                                        bio: user["bio"] as? String ?? "")
                         }
                     }
                 }
@@ -46,11 +47,16 @@ class viewUserModel: ObservableObject {
         }
     }
         
-    
-//    func fetchcurrentUser() {
-//        guard let uid = ""
-//                FirebaseManager.shared.auth
-//                .currentUser?.uid else { return }
+
+//        if let user = user {
+//            let userID = user.uid
+//            let userEmail = user.email!
+//            let bio = user.bio
+//            let location = user.location
+//            let username = user.username
+//          }
+
+       
     
 
 //        // get reference to the db //
@@ -81,7 +87,7 @@ class viewUserModel: ObservableObject {
         let db = Firestore.firestore()
         
         //add doc to user collection
-        db.collection("users").document(id).setData(["email": email, "bio": "", "id": "", "location": "", "username": ""]) { error in
+        db.collection("users").document(id).setData(["bio": "", "email": email, "location": "", "uid": id,  "username": ""]) { error in
             //check for errors
             if error == nil {
                 //no errors

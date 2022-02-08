@@ -41,7 +41,7 @@ public class PlantDataLoader {
 
 
 struct PlantCardFormView: View {
-    var userID: String
+//    var userID: String
     
     let plantList = PlantDataLoader().plantData
     @ObservedObject var model = viewPlantCardModel()
@@ -106,15 +106,11 @@ struct PlantCardFormView: View {
         }
     
     }
-    
-    
-
-
-
+}
 
 struct PlantCardView_Previews: PreviewProvider {
     static var previews: some View {
         PlantCardFormView()
     }
 }
-}
+

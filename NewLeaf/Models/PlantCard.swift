@@ -8,7 +8,6 @@
 import Foundation
 
 
-
 struct PlantCard: Identifiable {
     var id: String
     var name: String

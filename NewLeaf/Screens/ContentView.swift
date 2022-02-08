@@ -22,8 +22,14 @@ struct ContentView: View {
 }
     
 struct LoginView: View {
+    
+    
+
+    
     @State private var userEmail = ""
     @State private var userPassword = ""
+    @State private var isLoginMode = false
+   
     
     var body: some View {
         ScrollView{
@@ -45,22 +51,22 @@ struct LoginView: View {
                         .padding(12)
                         .background(Color.white)
                 }
-                Button {
+                Button("Log in") {
                     loginUser()
-                } label: {
-                    HStack {
-                        Spacer()
-                        Text("Log In")
-                            .bold()
-                            .foregroundColor(.white)
-                            .padding(.vertical, 10)
-                        Spacer()
-                    } .background(Color.green)
-                        .frame(width: 200)
-                        .cornerRadius(10)
-                    
-                    
+                    isLoginMode.toggle()
                 }
+                .fullScreenCover(isPresented: $completedLogin) {
+                    HomepageView()
+                }
+                 .padding(.vertical, 10)
+                 .frame(width: 200)
+                 .background(Color.green)
+                 .cornerRadius(10)
+                    .foregroundColor(.white)
+                    
+                
+
+                    
                 Text(self.loginStatusMessage)
                     .foregroundColor(.red)
             
@@ -75,8 +81,7 @@ struct LoginView: View {
         }
     }
             
-    
-
+    @State private var completedLogin = false
     @State var loginStatusMessage = ""
     
     private func loginUser() {
@@ -85,8 +90,11 @@ struct LoginView: View {
                 print("Failed to login user:" , error)
                 self.loginStatusMessage = "Failed to login user: \(error)"
                 return
-            }
+            } else {
             self.loginStatusMessage = "\(userEmail) successfully logged in!"
+            self.completedLogin.toggle()
+            }
+    
         }
     }
     
