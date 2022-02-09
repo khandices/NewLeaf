@@ -40,7 +40,7 @@ class viewUserProfileModel: ObservableObject {
     init() {
         fetchCurrentUser()
     }
-    private func fetchCurrentUser() {
+    func fetchCurrentUser() {
 
         guard let userData = Auth.auth().currentUser?.uid
         else {
@@ -65,15 +65,38 @@ class viewUserProfileModel: ObservableObject {
         }
 
     }
+    
+    
 }
 
 struct HomepageView: View {
    
-    @StateObject var vm = viewUserProfileModel()
+//    @StateObject var vm = viewUserProfileModel()
+    @State private var clickedLogout: Bool = false
+    @State var isuserLoggedOut = false
+    
+    func signoutUser() {
+        isuserLoggedOut.toggle()
+    }
     
     var body: some View {
         NavigationView{
             VStack{
+                // Custom nav bar
+                HStack{
+                    Spacer()
+                    Button("Log out") {
+                        clickedLogout.toggle()
+                        print("user logged out")
+                    }
+                }
+                .padding()
+                .offset(y: -100)
+               
+                Image("NewLeaf (2)")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 180)
                 Text("Loading???????")
 //                Text("CURRENT USER ID: \(vm.currentUser.id)")
                 
@@ -99,11 +122,28 @@ struct HomepageView: View {
                     Spacer()
                 })
             }
+            .offset(y: -100)
+            .actionSheet(isPresented: $clickedLogout) {
+                .init(title: Text(""), message: Text("Do you want to log out?"), buttons: [
+                    .destructive(Text("Log Out"), action: {
+                        print("user logged out")
+                        signoutUser()
+                    }),
+                    .cancel()
+                    ])
+            }
+            .fullScreenCover(isPresented: $isuserLoggedOut, onDismiss: nil) {
+                ContentView()
+            }
+            
+            .navigationBarHidden(true)
+            
         }
-        .environmentObject(vm)
-    }
         
+//        .environmentObject(vm)
+    }
 }
+
 
     
 

@@ -16,11 +16,22 @@ import Firebase
 
 struct UserProfileView: View {
     
-    @EnvironmentObject var vm: viewUserProfileModel
+//    @EnvironmentObject var vm: viewUserProfileModel
 
     var body: some View {
         NavigationView {
             VStack {
+                // Custom nav bar
+                HStack{
+                    Spacer()
+                    Button {
+                        print("user logged out")
+                    } label: {
+                        Image(systemName: "ellipsis")
+                    }
+                }
+                .padding()
+                .offset(y: -100)
                 VStack{
                     Image(systemName: "person.fill")
                         .resizable()
@@ -28,7 +39,7 @@ struct UserProfileView: View {
                         .clipShape(Circle())
 //                        .overlay(RoundedRectangle(cornerRadius: 44).stroke(Color.black, lineWidth: 1)
                     
-                    Text("\(vm.currentUser.id)")
+//                    Text("\(vm.currentUser.id)")
                     Text("username")
                         .font(.title)
                         .bold()
@@ -59,27 +70,28 @@ struct UserProfileView: View {
                 .padding()
             }
             .offset(y: -100)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Menu(content: {
-                        NavigationLink (destination: PlantCardFormView(), label: {
-                        Text("Register Plant Card")
-                        })
-                        Text("Create Trade")
-                        Text("Log out")
-                    }, label: {
-                        Image(systemName: "heart.fill")
-                    })
+//            .toolbar {
+//                ToolbarItem(placement: .navigationBarTrailing) {
+//                    Menu(content: {
+//                        NavigationLink (destination: PlantCardFormView(), label: {
+//                        Text("Register Plant Card")
+//                        })
+//                        Text("Create Trade")
+//                        Text("Log out")
+//                    }, label: {
+//                        Image(systemName: "ellipsis")
+//                    })
 //                    Button(action: {
 //
 //                    }, label : {
 //                        Image(systemName: "bell")
 //                    })
                 }
-            }
+                .navigationBarHidden(true)
             }
         }
-}
+    
+
         
 struct UserProfileView_Previews: PreviewProvider {
     static var previews: some View {
