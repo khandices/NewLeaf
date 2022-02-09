@@ -11,14 +11,15 @@ import Foundation
 import SwiftUI
 import Firebase
 
+
+
+
 struct UserProfileView: View {
     
-    @ObservedObject var model = viewUserModel()
-    @State private var userEmail = ""
-    @State private var userID = ""
+    @EnvironmentObject var vm: viewUserProfileModel
 
     var body: some View {
-            
+        NavigationView {
             VStack {
                 VStack{
                     Image(systemName: "person.fill")
@@ -27,18 +28,19 @@ struct UserProfileView: View {
                         .clipShape(Circle())
 //                        .overlay(RoundedRectangle(cornerRadius: 44).stroke(Color.black, lineWidth: 1)
                     
-                    Text("Username")
+                    Text("\(vm.currentUser.id)")
+                    Text("username")
                         .font(.title)
                         .bold()
                     Text("Location")
                         .bold()
                 }
-                Text("Placeholder for user bio")
+                Text("Placeholder for user bio.")
             
-                Button {
-                } label: {
-                    Text("Update Profile")
-                }
+//                Button {
+//                } label: {
+//                    Text("Update Profile")
+//                }
                 HStack {
 //                    use READ all request of plant Cards under current userID
                     Image("NewLeaf (2)")
@@ -55,18 +57,33 @@ struct UserProfileView: View {
                             .frame(height: 125)
                 }
                 .padding()
-                
+            }
+            .offset(y: -100)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Menu(content: {
+                        NavigationLink (destination: PlantCardFormView(), label: {
+                        Text("Register Plant Card")
+                        })
+                        Text("Create Trade")
+                        Text("Log out")
+                    }, label: {
+                        Image(systemName: "heart.fill")
+                    })
+//                    Button(action: {
+//
+//                    }, label : {
+//                        Image(systemName: "bell")
+//                    })
+                }
+            }
             }
         }
 }
-
-
-
-struct optionsMenu {}
         
 struct UserProfileView_Previews: PreviewProvider {
     static var previews: some View {
-            UserProfileView()
+        UserProfileView()
     }
 }
 

@@ -10,10 +10,6 @@ import Foundation
 
 
 struct User: Identifiable {
-    var id: String
-    var username: String
-    var email: String
-    var location: String
-    var bio: String
+    var id, username, email, location, bio: String
     
 }

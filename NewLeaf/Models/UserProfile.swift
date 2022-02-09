@@ -12,5 +12,4 @@ import ImageIO
 struct Profile {
     var username: String
     var userBio: String
-//    var plantCards = [PlantCard]()
 }

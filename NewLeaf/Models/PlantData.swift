@@ -10,7 +10,5 @@ import SwiftUI
 
 struct PlantData: Codable, Hashable {
     
-    var name: String
-    var info: String
-    
+    var name, info: String 
 }

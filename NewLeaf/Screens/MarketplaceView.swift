@@ -11,14 +11,14 @@ import SwiftUI
 
 struct MarketplaceView: View {
 
-//    @State private var userEmail = ""
-//    @State private var userPassword = ""
-//
+//    @State var currentUser: CurrentUser
+
 //    @ObservedObject var model = viewUserModel()
     
     var body: some View {
-        
-        Text("Marketplace Timeline placeholder")
+        NavigationView {
+            Text("Marketplace Timeline placeholder")
+        }
         
     }
 }

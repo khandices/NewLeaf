@@ -9,8 +9,6 @@ import Foundation
 
 
 struct PlantCard: Identifiable {
-    var id: String
-    var name: String
-    var info: String
+    var id, name, info: String
 }
 
