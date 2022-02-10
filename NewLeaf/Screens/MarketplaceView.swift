@@ -16,9 +16,13 @@ struct MarketplaceView: View {
 //    @ObservedObject var model = viewUserModel()
     
     var body: some View {
-        NavigationView {
-            Text("Marketplace Timeline placeholder")
-        }
-        
+        Text("Marketplace Timeline placeholder")
+    }
+}
+
+
+struct MarketplaceView_Previews: PreviewProvider {
+    static var previews: some View {
+        MarketplaceView()
     }
 }

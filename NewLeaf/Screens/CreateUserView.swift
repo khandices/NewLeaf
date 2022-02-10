@@ -79,9 +79,10 @@ struct CreateUserView: View {
             userID = result?.user.uid ?? ""
             print(userID)
             self.createUserStatusMessage = "Successfully created user: \(userID)"
+            model.addUser(id: userID, email: userEmail)
             userEmail = ""
             userPassword = ""
-            model.addUser(id: userID, email: userEmail)
+            
         }
             
     }

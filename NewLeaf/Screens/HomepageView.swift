@@ -35,7 +35,7 @@ struct CurrentUser: Identifiable {
 class viewUserProfileModel: ObservableObject {
 
     @Published var errorMessage = ""
-    var currentUser = CurrentUser(id: "test" , email: "test", username: "test", bio: "", location: "")
+    @Published var currentUser = CurrentUser(id: "test" , email: "test", username: "test", bio: "", location: "")
 
     init() {
         fetchCurrentUser()
@@ -70,35 +70,34 @@ class viewUserProfileModel: ObservableObject {
 }
 
 struct HomepageView: View {
-   
-//    @StateObject var vm = viewUserProfileModel()
-    @State private var clickedLogout: Bool = false
-    @State var isuserLoggedOut = false
+    @StateObject var currentUser = viewUserProfileModel()
     
-    func signoutUser() {
-        isuserLoggedOut.toggle()
-    }
+    @EnvironmentObject var viewRouter: ViewRouter
+
+    @State private var clickedLogout: Bool = false
+//    func signoutUser() {
+//        viewRouter.currentPage = .page1
+//    }
     
     var body: some View {
         NavigationView{
             VStack{
                 // Custom nav bar
-                HStack{
-                    Spacer()
-                    Button("Log out") {
-                        clickedLogout.toggle()
-                        print("user logged out")
-                    }
-                }
-                .padding()
-                .offset(y: -100)
+//                HStack {
+//                    Button("Log out") {
+//                        viewRouter.currentPage = .page1
+////                        clickedLogout.toggle()
+//                        print("user logged out")
+//                    }
+//                }
+//                .padding()
+//                .offset(y: -100)
                
                 Image("NewLeaf (2)")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 180)
-                Text("Loading???????")
-//                Text("CURRENT USER ID: \(vm.currentUser.id)")
+                Text("Welcome \(currentUser.currentUser.username)!")
                 
                 NavigationLink(destination: MarketplaceView(), label: {
                     Spacer()
@@ -111,7 +110,7 @@ struct HomepageView: View {
                     Spacer()
                 })
                 
-                NavigationLink(destination: UserProfileView(), label: {
+                NavigationLink(destination: UserProfileView().environmentObject(currentUser), label: {
                     Spacer()
                     Text("My Profile")
                         .padding(.vertical, 10)
@@ -121,27 +120,26 @@ struct HomepageView: View {
                         .foregroundColor(.white)
                     Spacer()
                 })
+                Button("Log out") {
+                    clickedLogout.toggle()
+                    print("user logged out")
+                }
             }
             .offset(y: -100)
             .actionSheet(isPresented: $clickedLogout) {
                 .init(title: Text(""), message: Text("Do you want to log out?"), buttons: [
                     .destructive(Text("Log Out"), action: {
                         print("user logged out")
-                        signoutUser()
+                        viewRouter.currentPage = .page1
                     }),
                     .cancel()
                     ])
             }
-            .fullScreenCover(isPresented: $isuserLoggedOut, onDismiss: nil) {
-                ContentView()
-            }
-            
-            .navigationBarHidden(true)
-            
+           
         }
         
-//        .environmentObject(vm)
     }
+   
 }
 
 
@@ -149,7 +147,7 @@ struct HomepageView: View {
 
 struct HomepageView_Previews: PreviewProvider {
     static var previews: some View {
-            HomepageView()
+            HomepageView().environmentObject(ViewRouter())
     }
 }
 

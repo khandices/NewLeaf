@@ -12,6 +12,7 @@ import Foundation
 
 @main
 struct NewLeafApp: App {
+    @StateObject var viewRouter = ViewRouter()
     
     init() {
          FirebaseApp.configure()
@@ -19,7 +20,7 @@ struct NewLeafApp: App {
      
      var body: some Scene {
          WindowGroup {
-             ContentView()
+             ContentView().environmentObject(viewRouter)
 //             UserProfileView()
 //             PlantCardFormView()
          }

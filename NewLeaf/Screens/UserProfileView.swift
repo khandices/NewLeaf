@@ -16,86 +16,67 @@ import Firebase
 
 struct UserProfileView: View {
     
-//    @EnvironmentObject var vm: viewUserProfileModel
+    @EnvironmentObject var currentUser: viewUserProfileModel
 
     var body: some View {
-        NavigationView {
-            VStack {
-                // Custom nav bar
-                HStack{
-                    Spacer()
-                    Button {
-                        print("user logged out")
-                    } label: {
-                        Image(systemName: "ellipsis")
-                    }
+        VStack {
+            // Custom nav bar
+            HStack{
+                Spacer()
+                Button {
+                    print("user logged out")
+                } label: {
+                    Image(systemName: "ellipsis")
                 }
-                .padding()
-                .offset(y: -100)
-                VStack{
-                    Image(systemName: "person.fill")
-                        .resizable()
-                        .frame(width: 120, height: 120)
-                        .clipShape(Circle())
-//                        .overlay(RoundedRectangle(cornerRadius: 44).stroke(Color.black, lineWidth: 1)
-                    
-//                    Text("\(vm.currentUser.id)")
-                    Text("username")
-                        .font(.title)
-                        .bold()
-                    Text("Location")
-                        .bold()
-                }
-                Text("Placeholder for user bio.")
+            }
+            .padding()
+            .offset(y: -70)
+            VStack{
+                Image(systemName: "person.fill")
+                    .resizable()
+                    .frame(width: 120, height: 120)
+                    .clipShape(Circle())
+                
+                //                    Text("\(vm.currentUser.id)")
+                Text(currentUser.currentUser.username)
+                    .font(.title)
+                    .bold()
+                Text(currentUser.currentUser.location)
+                    .bold()
+            }
+            Text(currentUser.currentUser.bio)
             
-//                Button {
-//                } label: {
-//                    Text("Update Profile")
-//                }
-                HStack {
-//                    use READ all request of plant Cards under current userID
-                    Image("NewLeaf (2)")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                            .frame(height: 125)
-                    Image("NewLeaf (2)")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                            .frame(height: 125)
-                    Image("NewLeaf (2)")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                            .frame(height: 125)
-                }
-                .padding()
+            //                Button {
+            //                } label: {
+            //                    Text("Update Profile")
+            //                }
+            HStack {
+                // use READ all request of plant Cards under current userID
+                Image("NewLeaf (2)")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 125)
+                Image("NewLeaf (2)")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 125)
+                Image("NewLeaf (2)")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 125)
             }
-            .offset(y: -100)
-//            .toolbar {
-//                ToolbarItem(placement: .navigationBarTrailing) {
-//                    Menu(content: {
-//                        NavigationLink (destination: PlantCardFormView(), label: {
-//                        Text("Register Plant Card")
-//                        })
-//                        Text("Create Trade")
-//                        Text("Log out")
-//                    }, label: {
-//                        Image(systemName: "ellipsis")
-//                    })
-//                    Button(action: {
-//
-//                    }, label : {
-//                        Image(systemName: "bell")
-//                    })
-                }
-                .navigationBarHidden(true)
-            }
+            .padding()
         }
-    
+        .padding()
+        .offset(y: -100)
+    }
+}
+
 
         
 struct UserProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        UserProfileView()
+        UserProfileView().environmentObject(viewUserProfileModel())
     }
 }
 
