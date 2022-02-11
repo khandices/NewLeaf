@@ -32,7 +32,7 @@ struct CurrentUser: Identifiable {
     }
 }
 
-class viewUserProfileModel: ObservableObject {
+class ViewUserProfileModel: ObservableObject {
 
     @Published var errorMessage = ""
     @Published var currentUser = CurrentUser(id: "test" , email: "test", username: "test", bio: "", location: "")
@@ -70,7 +70,7 @@ class viewUserProfileModel: ObservableObject {
 }
 
 struct HomepageView: View {
-    @StateObject var currentUser = viewUserProfileModel()
+    @StateObject var currentUser = ViewUserProfileModel()
     
     @EnvironmentObject var viewRouter: ViewRouter
 

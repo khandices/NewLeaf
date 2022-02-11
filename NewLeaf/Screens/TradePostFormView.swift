@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct TradePostFormView: View {
-//    @State private var userID: String
+    @EnvironmentObject var currentUser: ViewUserProfileModel
     
     @State private var selectedPlantForTrade = ""
     @State private var tradepostTitle = ""

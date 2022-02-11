@@ -10,8 +10,9 @@ import SwiftUI
 import Firebase
 
 
-public class PlantDataLoader {
+class PlantDataLoader {
     @Published var plantData = [PlantData]()
+    
     
     init() {
         loadData()
@@ -41,7 +42,7 @@ public class PlantDataLoader {
 
 
 struct PlantCardFormView: View {
-//    var userID: String
+    @EnvironmentObject var currentUser: ViewUserProfileModel
     
     let plantList = PlantDataLoader().plantData
     @ObservedObject var model = viewPlantCardModel()
@@ -79,7 +80,7 @@ struct PlantCardFormView: View {
                     Button {
                         getPlantInfo(plantName: selectedPlant)
                         model.addPlantCard(name: selectedPlant, info: selectedPlantInfo)
-//                        model.addPlantToUser(userID: userID, plantID: String)
+//                        model.addPlantToUser(userID: currentUser.currentUser.id, plantID: String)
                     } label: {
                         HStack {
                             Spacer()

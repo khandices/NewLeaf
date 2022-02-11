@@ -13,6 +13,8 @@ import SwiftUI
 
 struct CreateUserView: View {
 
+    let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
+    
     @State private var userEmail = ""
     @State private var userPassword = ""
    
@@ -31,13 +33,13 @@ struct CreateUserView: View {
                         .keyboardType(.emailAddress)
                         .autocapitalization(.none)
                         .padding(12)
-                        .background(Color.white)
+                        .background(lightGreyColor)
                 }
 
                 Section {
                     SecureField("Password", text: $userPassword)
                         .padding(12)
-                        .background(Color.white)
+                        .background(lightGreyColor)
                 }
 
                 Button {
@@ -59,8 +61,7 @@ struct CreateUserView: View {
                     .foregroundColor(.red)
             }
             .padding()
-            .background(Color(.init(white: 0, alpha: 0.05)))
-                    .ignoresSafeArea()
+
         }
 
     }

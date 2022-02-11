@@ -29,11 +29,11 @@ class viewPlantCardModel: ObservableObject {
 
     }
     
-//    func addPlantToUser(userID: String, plantID: String) {
-//       let db = Firestore.firestore()
-//
-//        db.collection("users").document(userID).setData(["plant cards": plantID], merge: true)
-//    }
+    func addPlantToUser(userID: String, plantID: String) {
+       let db = Firestore.firestore()
+
+        db.collection("users").document(userID).setData(["plant cards": plantID], merge: true)
+    }
     
     
     

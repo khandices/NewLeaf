@@ -18,6 +18,7 @@
 		ECA84E1727B5877800DDBF77 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA84E1627B5877800DDBF77 /* ViewRouter.swift */; };
 		ECA84E1927B587AC00DDBF77 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA84E1827B587AC00DDBF77 /* Helper.swift */; };
 		ECA84E1B27B587DA00DDBF77 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA84E1A27B587DA00DDBF77 /* LoginView.swift */; };
+		ECA84E1D27B5A7E800DDBF77 /* EditUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA84E1C27B5A7E800DDBF77 /* EditUserView.swift */; };
 		ECCB004227A24DD1001A57CC /* NewLeafApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB004127A24DD1001A57CC /* NewLeafApp.swift */; };
 		ECCB004427A24DD1001A57CC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB004327A24DD1001A57CC /* ContentView.swift */; };
 		ECCB004627A24DD7001A57CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECCB004527A24DD7001A57CC /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 		ECA84E1627B5877800DDBF77 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		ECA84E1827B587AC00DDBF77 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		ECA84E1A27B587DA00DDBF77 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		ECA84E1C27B5A7E800DDBF77 /* EditUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserView.swift; sourceTree = "<group>"; };
 		ECCB003E27A24DD1001A57CC /* NewLeaf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewLeaf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECCB004127A24DD1001A57CC /* NewLeafApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLeafApp.swift; sourceTree = "<group>"; };
 		ECCB004327A24DD1001A57CC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				ECDA0AAD27AF1FAD0023F366 /* CreateUserView.swift */,
 				ECDA0AAF27AF5CD60023F366 /* TradePostFormView.swift */,
 				ECA84E1A27B587DA00DDBF77 /* LoginView.swift */,
+				ECA84E1C27B5A7E800DDBF77 /* EditUserView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -155,10 +158,10 @@
 		ECCB004027A24DD1001A57CC /* NewLeaf */ = {
 			isa = PBXGroup;
 			children = (
+				ECCB004127A24DD1001A57CC /* NewLeafApp.swift */,
 				EC49CFFD27AB52CB001E4E43 /* Routes */,
 				EC49CFF827AAFF6B001E4E43 /* Screens */,
 				EC49CFF727AAFF4B001E4E43 /* Models */,
-				ECCB004127A24DD1001A57CC /* NewLeafApp.swift */,
 				ECCB004F27A251FF001A57CC /* GoogleService-Info.plist */,
 				ECCB004527A24DD7001A57CC /* Assets.xcassets */,
 				ECCB004727A24DD7001A57CC /* Preview Content */,
@@ -293,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECE5959727A30B5D00DDCB2A /* UserProfileView.swift in Sources */,
+				ECA84E1D27B5A7E800DDBF77 /* EditUserView.swift in Sources */,
 				ECDA0AAE27AF1FAD0023F366 /* CreateUserView.swift in Sources */,
 				ECE5959F27A310EA00DDCB2A /* MarketplaceView.swift in Sources */,
 				EC49CFF627A9C94B001E4E43 /* UserProfile.swift in Sources */,
