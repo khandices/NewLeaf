@@ -43,9 +43,10 @@ class PlantDataLoader {
 
 struct PlantCardFormView: View {
     @EnvironmentObject var currentUser: ViewUserProfileModel
+    @ObservedObject var plantCardModel = viewPlantCardModel()
     
     let plantList = PlantDataLoader().plantData
-    @ObservedObject var model = viewPlantCardModel()
+
     @State private var selectedPlant = ""
     @State var selectedPlantInfo = ""
 
@@ -60,10 +61,10 @@ struct PlantCardFormView: View {
     
     
     var body: some View {
-        NavigationView {
             ScrollView {
                 VStack (spacing: 16) {
-                    
+                    Text("Create a plant card")
+                        .font(.title)
                     Picker(selection: $selectedPlant,
                            label: Text("Please choose your plant"),
                            content: {
@@ -79,7 +80,7 @@ struct PlantCardFormView: View {
                     
                     Button {
                         getPlantInfo(plantName: selectedPlant)
-                        model.addPlantCard(name: selectedPlant, info: selectedPlantInfo)
+                        plantCardModel.addPlantCard(name: selectedPlant, info: selectedPlantInfo, uid: currentUser.currentUser.id)
 //                        model.addPlantToUser(userID: currentUser.currentUser.id, plantID: String)
                     } label: {
                         HStack {
@@ -93,18 +94,20 @@ struct PlantCardFormView: View {
                         }
                         .background(Color.green)
                         .cornerRadius(10)
+                        .frame(width: 200)
                     }
-                    
+                    Text(plantCardModel.successMessage)
+                        .foregroundColor(.red)
                         
                 }
                 .padding()
-                .background(Color(.init(white: 0, alpha: 0.05)))
-                        .ignoresSafeArea()
+//                .background(Color(.init(white: 0, alpha: 0.05)))
+//                        .ignoresSafeArea()
             }
-            .navigationTitle("Create your Plant card")
-            .background(Color(.init(white:0, alpha: 0.05))
-                            .ignoresSafeArea())
-        }
+//            .navigationTitle("Create your Plant card")
+//            .background(Color(.init(white:0, alpha: 0.05))
+//                            .ignoresSafeArea())
+        
     
     }
 }

@@ -13,6 +13,7 @@ import SwiftUI
 class viewUserModel: ObservableObject {
     
     @Published var userList = [User]()
+    @Published var user: User = User(id: "", username: "", email: "", location: "", bio: "")
     
     func getAllUsers() {
         // get reference to the db //
@@ -40,48 +41,13 @@ class viewUserModel: ObservableObject {
                         }
                     }
                 }
-                
             } else {
-                //handle the error
+                print("Failed to retrieve users")
+                return
                 }
         }
     }
-        
-
-//        if let user = user {
-//            let userID = user.uid
-//            let userEmail = user.email!
-//            let bio = user.bio
-//            let location = user.location
-//            let username = user.username
-//          }
-
-       
     
-
-//        // get reference to the db //
-//        let db = Firestore.firestore()
-//        let currentUser = db.collection("users").document(userToGet.id)
-//        // read documents at a specific path //
-//        // two parameters are optional: first param will return the documents, second is returned error //
-//        currentUser.getDocument { snapshot, error in
-//            // check for errors
-//            if error == nil {
-//                //no errors
-//
-//                if let snapshot = snapshot {
-//                    // update the list property in the main thread
-//                    let username = snapshot.get("username")
-//                    let userEmail = snapshot.get("email")
-//                    let userLocation = snapshot.get("location")
-//                    return User(id: currentUser.documentID, username: username as? String ?? "", email: userEmail as? String ?? "", location: userLocation as? String ?? "")
-//                }
-//            } else {
-//                //handle the error
-//                }
-//        }
-
-
     func addUser(id: String, email: String) {
         //get reference to the db
         let db = Firestore.firestore()
@@ -120,13 +86,51 @@ class viewUserModel: ObservableObject {
             }
         }
     }
+        
     
-    
-    func updateUser(userToUpdate: User) {
+    func updateUser(uid: String, bio: String, location: String, username: String) {
         //get reference to the db
         let db = Firestore.firestore()
         
-        db.collection("users").document(userToUpdate.id).setData(["username": "updated username"], merge: true)
+        db.collection("users").document(uid).setData([
+            "username": username,
+            "bio": bio,
+            "location": location], merge: true)
     }
+
 }
+
+//        if let user = user {
+//            let userID = user.uid
+//            let userEmail = user.email!
+//            let bio = user.bio
+//            let location = user.location
+//            let username = user.username
+//          }
+
+       
+    
+
+//        // get reference to the db //
+//        let db = Firestore.firestore()
+//        let currentUser = db.collection("users").document(userToGet.id)
+//        // read documents at a specific path //
+//        // two parameters are optional: first param will return the documents, second is returned error //
+//        currentUser.getDocument { snapshot, error in
+//            // check for errors
+//            if error == nil {
+//                //no errors
+//
+//                if let snapshot = snapshot {
+//                    // update the list property in the main thread
+//                    let username = snapshot.get("username")
+//                    let userEmail = snapshot.get("email")
+//                    let userLocation = snapshot.get("location")
+//                    return User(id: currentUser.documentID, username: username as? String ?? "", email: userEmail as? String ?? "", location: userLocation as? String ?? "")
+//                }
+//            } else {
+//                //handle the error
+//                }
+//        }
+
 

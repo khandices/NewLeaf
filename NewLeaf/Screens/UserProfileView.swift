@@ -64,6 +64,7 @@ struct UserProfileView: View {
                 }
                 .padding()
             }
+            .offset(y: -100)
             .toolbar {
                 ToolbarItem {
                     Menu {

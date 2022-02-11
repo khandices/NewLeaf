@@ -51,6 +51,7 @@ struct LoginView: View {
                      .background(Color.green)
                      .cornerRadius(10)
                      .foregroundColor(.white)
+                  
                  
                     Text(self.loginStatusMessage)
                         .foregroundColor(.red)
