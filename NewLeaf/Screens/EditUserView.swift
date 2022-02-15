@@ -10,8 +10,11 @@ import SwiftUI
 
 struct EditUserView: View {
     @EnvironmentObject var currentUser: ViewUserProfileModel
-    
     @ObservedObject var userModel = viewUserModel()
+    
+    @State private var image: Image?
+    @State private var showingImagePicker = false
+    @State private var inputImage: UIImage?
     
     @State private var bio = "bio"
     @State private var username = "username"
@@ -32,13 +35,21 @@ struct EditUserView: View {
             VStack {
                 Text("Edit User Profile")
                     .font(.title)
-                Image(systemName: "person.fill")
+                image?
                     .resizable()
+                    .cornerRadius(50)
+                    .padding(.all, 4)
+                    .background(Color.black.opacity(0.2))
+                    .aspectRatio(contentMode: .fill)
                     .frame(width: 120, height: 120)
                     .clipShape(Circle())
+                    .scaledToFit()
+
                 Button("Update photo") {
+                    showingImagePicker.toggle()
                     print("user profile pic updated")
                 }
+
                 TextField("Username", text: $username)
                     .padding(12)
                     .background(lightGreyColor)
@@ -68,11 +79,25 @@ struct EditUserView: View {
                 }
                 Text(statusMessage)
                     .foregroundColor(.red)
+                   
+            }
             }
             .padding()
+            .sheet(isPresented: $showingImagePicker) {
+                ImagePicker(image: $inputImage)
         }
+        .onChange(of: inputImage) { _ in loadImage() }
+        
+        
     }
+    
+    func loadImage() {
+        guard let inputImage = inputImage else { return }
+        image = Image(uiImage: inputImage)
+    }
+    
 }
+
 
 
 struct editUserView_Previews: PreviewProvider {
