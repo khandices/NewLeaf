@@ -27,7 +27,6 @@ struct UserProfileView: View {
     }
     
     var body: some View {
-        NavigationView {
             VStack {
                 NavigationLink(destination: PlantCardFormView(), isActive: $plantCardActive) {
                     EmptyView()
@@ -81,28 +80,24 @@ struct UserProfileView: View {
 //                        .frame(height: 125)
                 }
                 .padding()
-            }
-            .offset(y: -100)
-            .toolbar {
-                ToolbarItem {
-                    Menu {
-                        Button("Register plant card") {
-                            plantCardActive.toggle()
+                .toolbar {
+                    ToolbarItem {
+                        Menu {
+                            Button("Register plant card") {
+                                plantCardActive.toggle()
+                            }
+                            Button("Create Trade") {
+                                tradePostActive.toggle()
+                            }
+                            Button("Edit Profile") {
+                                editUserActive.toggle()
+                            }
+                        } label: {
+                            Label("Options", systemImage: "ellipsis")
                         }
-                        Button("Create Trade") {
-                            tradePostActive.toggle()
-                        }
-                        Button("Edit Profile") {
-                            editUserActive.toggle()
-                        }
-                    } label: {
-                        Label("Options", systemImage: "ellipsis")
                     }
                 }
             }
-            .padding()
-                
-        }
     }
         
 

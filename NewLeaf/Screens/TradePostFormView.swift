@@ -39,7 +39,6 @@ struct TradePostFormView: View {
     
     
     var body: some View {
-        NavigationView{
             VStack{
                 Form ( content: {
                     TextField("Title", text: $tradepostTitle)
@@ -92,8 +91,6 @@ struct TradePostFormView: View {
                         .offset(y: -200)
                 }
             }
-        }
-        
     }
 }
 
