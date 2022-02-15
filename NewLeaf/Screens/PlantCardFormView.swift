@@ -81,7 +81,7 @@ struct PlantCardFormView: View {
                     Button {
                         getPlantInfo(plantName: selectedPlant)
                         plantCardModel.addPlantCard(name: selectedPlant, info: selectedPlantInfo, uid: currentUser.currentUser.id)
-//                        model.addPlantToUser(userID: currentUser.currentUser.id, plantID: String)
+
                     } label: {
                         HStack {
                             Spacer()

@@ -17,6 +17,11 @@ struct MarketplaceView: View {
     
     var body: some View {
         Text("Marketplace Timeline placeholder")
+        
+//        List(plantInfo.plantCardList) { plant in
+//            Text(plant.name)
+//            Text(plant.info)
+//        }
     }
 }
 

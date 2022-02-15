@@ -14,6 +14,7 @@ class viewUserModel: ObservableObject {
     
     @Published var userList = [User]()
     @Published var user: User = User(id: "", username: "", email: "", location: "", bio: "")
+    @Published var successMessage: String = ""
     
     func getAllUsers() {
         // get reference to the db //
@@ -91,11 +92,12 @@ class viewUserModel: ObservableObject {
     func updateUser(uid: String, bio: String, location: String, username: String) {
         //get reference to the db
         let db = Firestore.firestore()
+        DispatchQueue.main.async {
+            db.collection("users").document(uid).setData(["bio": bio, "location": location, "username": username], merge: true)
+        }
+        self.successMessage = "User profile updated!"
         
-        db.collection("users").document(uid).setData([
-            "username": username,
-            "bio": bio,
-            "location": location], merge: true)
+           
     }
 
 }

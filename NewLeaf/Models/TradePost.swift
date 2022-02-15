@@ -8,6 +8,6 @@
 import Foundation
 
 struct TradePost: Identifiable {
-    var id, title, location,plantName: String
+    var id, title, location, plantName, username, plantID, uid: String
     var isFree: Bool
 }

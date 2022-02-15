@@ -17,9 +17,14 @@ import Firebase
 struct UserProfileView: View {
     
     @EnvironmentObject var currentUser: ViewUserProfileModel
+    @ObservedObject var plantInfo = viewPlantCardModel()
     @State var plantCardActive: Bool = false
     @State var tradePostActive: Bool = false
     @State var editUserActive: Bool = false
+    
+    init() {
+        plantInfo.getAllPlantCards()
+    }
     
     var body: some View {
         NavigationView {
@@ -30,7 +35,7 @@ struct UserProfileView: View {
                 NavigationLink(destination: TradePostFormView(), isActive: $tradePostActive) {
                     EmptyView()
                 }
-                NavigationLink(destination: EditUserView(), isActive: $editUserActive) {
+                NavigationLink(destination: EditUserView(nBio: currentUser.currentUser.bio, nLocation: currentUser.currentUser.location, nUsername: currentUser.currentUser.username), isActive: $editUserActive) {
                     EmptyView()
                 }
                 VStack{
@@ -46,21 +51,34 @@ struct UserProfileView: View {
                         .bold()
                 }
                 Text(currentUser.currentUser.bio)
-                
-                HStack {
-                    // use READ all request of plant Cards under current userID
-                    Image("NewLeaf (2)")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 125)
-                    Image("NewLeaf (2)")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 125)
-                    Image("NewLeaf (2)")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 125)
+                VStack {
+                        List(plantInfo.plantCardList) { plant in
+                            if plant.uid == currentUser.currentUser.id {
+                                Text(plant.name)
+                                Text(plant.info)
+                            }
+                        }
+                }
+
+//                HStack {
+//                    // use READ all request of plant Cards under current userID
+//                    List(plantInfo.plantList) {plant in
+//                            Text(plant.name)
+//                            Text(plant.info)
+//                        }
+//                    }
+//                    Image("NewLeaf (2)")
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fit)
+//                        .frame(height: 125)
+//                    Image("NewLeaf (2)")
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fit)
+//                        .frame(height: 125)
+//                    Image("NewLeaf (2)")
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fit)
+//                        .frame(height: 125)
                 }
                 .padding()
             }
@@ -87,7 +105,7 @@ struct UserProfileView: View {
         }
     }
         
-}
+
 
 struct UserProfileView_Previews: PreviewProvider {
     static var previews: some View {
@@ -95,32 +113,3 @@ struct UserProfileView_Previews: PreviewProvider {
     }
 }
 
-
-
-//                HStack {
-//                    Spacer()
-//                    NavigationLink(destination: PlantCardFormView(), isActive: $plantCardActive) {
-//                        EmptyView()
-//                    }
-//                    NavigationLink(destination: TradePostFormView(), isActive: $tradePostActive) {
-//                        EmptyView()
-//                    }
-//                    NavigationLink(destination: EditUserView(), isActive: $editUserActive) {
-//                        EmptyView()
-//                    }
-//                    Menu {
-//                        Button("Register plant card") {
-//                            plantCardActive.toggle()
-//                        }
-//                        Button("Create Trade") {
-//                            tradePostActive.toggle()
-//                        }
-//                        Button("Edit Profile") {
-//                            editUserActive.toggle()
-//                        }
-//                    } label: {
-//                        Label("Options", systemImage: "ellipsis")
-//                    }
-//                }
-//                .padding()
-//                .offset(y: -100)

@@ -11,16 +11,72 @@ import SwiftUI
 struct EditUserView: View {
     @EnvironmentObject var currentUser: ViewUserProfileModel
     
-    @State private var selectedPlantForTrade = ""
-    @State private var tradepostTitle = ""
-    @State private var notFreeTrade: Bool = true
-    @State private var tradeUserWants = ""
+    @ObservedObject var userModel = viewUserModel()
+    
+    @State private var bio = "bio"
+    @State private var username = "username"
+    @State private var location = "location"
+    @State var statusMessage = ""
+    
+    init(nBio: String, nLocation: String, nUsername: String) {
+        
+          _bio = State(initialValue: nBio)
+          _username = State(initialValue: nUsername)
+          _location = State(initialValue: nLocation)
+    }
+    
+    let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
     
     var body: some View {
-        NavigationView{
-                VStack{
-                    Text("Edit user menu")
+        ScrollView {
+            VStack {
+                Text("Edit User Profile")
+                    .font(.title)
+                Image(systemName: "person.fill")
+                    .resizable()
+                    .frame(width: 120, height: 120)
+                    .clipShape(Circle())
+                Button("Update photo") {
+                    print("user profile pic updated")
                 }
+                TextField("Username", text: $username)
+                    .padding(12)
+                    .background(lightGreyColor)
+                TextEditor(text: $bio)
+                    .padding(12)
+                    .background(lightGreyColor)
+                TextField("Location", text: $location)
+                    .padding(12)
+                    .background(lightGreyColor)
+                
+            Button {
+                userModel.updateUser(uid: currentUser.currentUser.id, bio: bio, location: location, username: username)
+                statusMessage = userModel.successMessage
+            } label: {
+                HStack {
+                    Spacer()
+                    Text("Update Profile")
+                        .bold()
+                        .foregroundColor(.white)
+                        .padding(.vertical, 10)
+                        
+                    Spacer()
+                }
+                .background(Color.green)
+                .cornerRadius(10)
+                .frame(width: 200)
+                }
+                Text(statusMessage)
+                    .foregroundColor(.red)
+            }
+            .padding()
         }
+    }
+}
+
+
+struct editUserView_Previews: PreviewProvider {
+    static var previews: some View {
+        EditUserView(nBio: "Bio", nLocation: "Location", nUsername: "username").environmentObject(ViewUserProfileModel())
     }
 }

@@ -112,14 +112,14 @@
 		EC49CFF827AAFF6B001E4E43 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				EC49CFFE27AB5316001E4E43 /* PlantCardFormView.swift */,
 				ECCB004327A24DD1001A57CC /* ContentView.swift */,
-				ECE5959627A30B5D00DDCB2A /* UserProfileView.swift */,
-				ECE5959E27A310EA00DDCB2A /* MarketplaceView.swift */,
-				EC49D00427AC8955001E4E43 /* HomepageView.swift */,
-				ECDA0AAD27AF1FAD0023F366 /* CreateUserView.swift */,
-				ECDA0AAF27AF5CD60023F366 /* TradePostFormView.swift */,
 				ECA84E1A27B587DA00DDBF77 /* LoginView.swift */,
+				ECDA0AAD27AF1FAD0023F366 /* CreateUserView.swift */,
+				EC49D00427AC8955001E4E43 /* HomepageView.swift */,
+				ECE5959E27A310EA00DDCB2A /* MarketplaceView.swift */,
+				ECE5959627A30B5D00DDCB2A /* UserProfileView.swift */,
+				EC49CFFE27AB5316001E4E43 /* PlantCardFormView.swift */,
+				ECDA0AAF27AF5CD60023F366 /* TradePostFormView.swift */,
 				ECA84E1C27B5A7E800DDBF77 /* EditUserView.swift */,
 			);
 			path = Screens;
