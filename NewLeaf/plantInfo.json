@@ -1,31 +1,89 @@
 [
     {
         "name": "Strelitzia nicolai",
-        "info" : "Also known as the Bird of paradise, this plant requires"
+        "info" : "Also known as the Bird of paradise, this plant prefers moist soil, humid environment, and can tolerate direct sun to low light conditions"
     },
     
     {
         "name": "Chamaedorea seifrizii",
-        "info" : "Also known as the Bamboo palm, this plant requires"
+        "info" : "Also known as the Bamboo palm, this plant grows best in bright, indirect sunlight and moist soil"
     },
     
     {
         "name": "Monstera deliciosa",
-        "info" : "Also known as the Monstera, this plant requires"
+        "info" : "Mostly called by the name Monstera, this plant likes bright, indirect sunlight. This plant prefers to have its soil dry out slightly in between waterings"
     },
     
     {
         "name": "Alocasia Frydek",
-        "info" : "Also known as the Green Velvet Alocasia, this plant requires"
+        "info" : "Also called the Green Velvet Alocasia, this plant requires watering when the top soil is dry, and bright indirect sunlight."
     },
     
     {
         "name": "Pilea Peperomioides",
-        "info" : "Also known as the Chinese Money Plant, this plant requires"
+        "info" : "Also known as the Chinese Money Plant, this plant ejoys deep weekly waterings and bright, indirect sunlight but can adapt to lower light levels."
     },
     
     {
         "name": "Epipremnum aureum",
-        "info" : "Also known as the Marble queen pothos, this plant requires"
+        "info" : "Also known as the Devil's Ivy, this plant prefers its soil to be kept moist and can tolerate low light conditions"
+    },
+    
+    {
+        "name": "Hypoestes phyllostachya",
+        "info" : "Also called the Polka-dot plant, this plant prefers its soil to be kept moist and bright,indirect light."
+    },
+    
+    {
+        "name": "Calathea ornata",
+        "info" : "Also known as the Pinstripe plant, this plant does best with bright, indirect sunlight, moist soil, and a humid environment."
+    },
+    {
+        "name": "Calathea lancifolia",
+        "info" : "Also known as the Rattlesnake plant, this must be in slightly moist soil at all times and tolerates indirect sunlight best."
+    },
+    {
+        "name": "Dracaena trifasciata",
+        "info" : "Also called the Snake plant, this plant seems happiest in bright light or partial shade, and only watered after soil is completely dry."
+    },
+    {
+        "name": "Zamioculcas zamiifolia",
+        "info" : "Also known as the ZZ plant, this plant grows well in low levels of light and water after soil has completely dried."
+    },
+    {
+        "name": "Senecio rowleyanus",
+        "info" : "Also called the String of Pearls plant, this plant enjoys slightly moist soil and direct to indirect sunlight."
+    },
+    {
+        "name": "Monstera Adansonii",
+        "info" : "Also known as the Swiss Cheese plant, this plant prefers bright, indirect light and water every 1-2 weeks."
+    },
+    {
+        "name": "Scindapsus pictus",
+        "info" : "Sometimes called the Satin Pothos, this plant doesn't mind slightly dry soil and low light settings."
+    },
+    {
+        "name": "Ficus lyrata",
+        "info" : "Also called the Fiddle Leaf Fig plant, this plant prefers bright direct/indirect sunlight and water every 1-2 weeks."
+    },
+    {
+        "name": "Peperomia Obtusifolia",
+        "info" : "Also known as the Baby Rubber Plant, this plant prefers bright indirect to low light conditions and water every 1-2 weeks."
+    },
+    {
+        "name": "Maranta Leuconeura var. Erythroneura",
+        "info" : "Also known as the Lemon Lime prayer plant, this plant enjoys moist but not soggy soil and indirect sunlight."
+    },
+    {
+        "name": "Maranta leuconeura",
+        "info" : "Also called the prayer plant or praying hands, this plant enjoys moist but not soggy soil and indirect sunlight."
+    },
+    {
+        "name": "Peperomia argyreia",
+        "info" : "Also known as the Watermelon Peperomia, this plant prefers bright to medium indirect sunlight, humid environment, and watering when top soil is dry."
+    },
+    {
+        "name": "Pachinra aquatica",
+        "info" : "Also known as the Mondey Tree plant, this plant prefers low to bright indirect light and moist soil."
     },
 ]

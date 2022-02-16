@@ -44,8 +44,8 @@ struct TradePostFormView: View {
             VStack {
                 Section {
                     TextField("Title", text: $tradepostTitle)
-                    //   need to pull from currentUser plantCards
-                } .padding(12)
+                }
+                .padding(12)
                 .background(lightGreyColor)
                 Section {
                     Text("Which plant did you want to trade?")
@@ -94,6 +94,7 @@ struct TradePostFormView: View {
                     } .background(Color.green)
                         .frame(width: 200)
                         .cornerRadius(10)
+                }
                     
                 Text(tradeModel.successMessage)
                         .foregroundColor(.red)
