@@ -82,26 +82,15 @@ struct HomepageView: View {
     var body: some View {
         NavigationView{
             VStack{
-                // Custom nav bar
-//                HStack {
-//                    Button("Log out") {
-//                        viewRouter.currentPage = .page1
-////                        clickedLogout.toggle()
-//                        print("user logged out")
-//                    }
-//                }
-//                .padding()
-//                .offset(y: -100)
-               
                 Image("NewLeaf (2)")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 180)
                 Text("Welcome \(currentUser.currentUser.username)!")
                 
-                NavigationLink(destination: MarketplaceView(), label: {
+                NavigationLink(destination: MarketplaceView().environmentObject(currentUser), label: {
                     Spacer()
-                    Text("Marketplace")
+                    Text("Trading Post")
                         .padding(.vertical, 10)
                         .frame(width: 200)
                         .background(Color.green)

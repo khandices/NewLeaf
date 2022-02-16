@@ -28,10 +28,10 @@ struct UserProfileView: View {
     
     var body: some View {
             VStack {
-                NavigationLink(destination: PlantCardFormView(), isActive: $plantCardActive) {
+                NavigationLink(destination: PlantCardFormView().environmentObject(currentUser), isActive: $plantCardActive) {
                     EmptyView()
                 }
-                NavigationLink(destination: TradePostFormView(), isActive: $tradePostActive) {
+                NavigationLink(destination: TradePostFormView().environmentObject(currentUser), isActive: $tradePostActive) {
                     EmptyView()
                 }
                 NavigationLink(destination: EditUserView(nBio: currentUser.currentUser.bio, nLocation: currentUser.currentUser.location, nUsername: currentUser.currentUser.username), isActive: $editUserActive) {

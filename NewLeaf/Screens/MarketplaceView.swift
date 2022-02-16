@@ -10,24 +10,49 @@ import SwiftUI
 
 
 struct MarketplaceView: View {
+    
+    @EnvironmentObject var currentUser: ViewUserProfileModel
+    @ObservedObject var trades = viewTradePostModel()
 
-//    @State var currentUser: CurrentUser
-
-//    @ObservedObject var model = viewUserModel()
+    init() {
+        trades.getTradePosts()
+        print(trades.tradePostList)
+    }
     
     var body: some View {
-        Text("Marketplace Timeline placeholder")
-        
-//        List(plantInfo.plantCardList) { plant in
-//            Text(plant.name)
-//            Text(plant.info)
-//        }
+            VStack {
+                Text("Welcome to the Trading Post!")
+                    .font(.title)
+                List(trades.tradePostList) { trade in
+                    Section {
+                        Text(trade.title)
+                            .bold()
+                        HStack {
+                            Text(trade.plantName)
+                            Text(trade.username)
+                        }
+                    }
+                }
+            }
     }
 }
+//        ScrollView {
+//            VStack {
+//                Text("Marketplace Timeline placeholder")
+//                List {
+//                    Text("Hello")
+//                    Text("Testing")
+//                }
 
+//            }
+//
+//        }
+//        .navigationBarTitle("Trading Post")
+//    }
+    
 
 struct MarketplaceView_Previews: PreviewProvider {
     static var previews: some View {
-        MarketplaceView()
+        MarketplaceView().environmentObject(ViewUserProfileModel())
     }
 }

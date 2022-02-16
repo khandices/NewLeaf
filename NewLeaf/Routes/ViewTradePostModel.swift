@@ -25,7 +25,7 @@ class viewTradePostModel: ObservableObject {
             if error == nil {
                 //no errors
                 self.tradeID = ref!.documentID;
-                self.addTradeToUser(userID: uid, tradeInfo: self.tradeID)
+                self.addTradeToUser(userID: uid, tradeInfo: self.tradeID, plantInfo: plantID, isFree: isFree)
                 self.successMessage = "Trade \(self.tradeID) successfully created! "
                 print("*******Successfully added plant card!********")
             } else {
@@ -38,12 +38,13 @@ class viewTradePostModel: ObservableObject {
 
     }
 
-    func addTradeToUser(userID: String, tradeInfo: String) {
+    func addTradeToUser(userID: String, tradeInfo: String, plantInfo: String, isFree: Bool) {
        let db = Firestore.firestore()
 
-        db.collection("users").document(userID).setData(["trade posts": tradeID], merge: true)
+        db.collection("users").document(userID).updateData(["tradePosts": FieldValue.arrayUnion([["id": tradeInfo, "plant": plantInfo, "isFree": isFree]])])
     }
     
+ 
 
 
     func getTradePosts() {
@@ -56,7 +57,7 @@ class viewTradePostModel: ObservableObject {
             // check for errors
             if error == nil {
                 //no errors
-               
+                print("inside GeTradePosts function")
                 if let snapshot = snapshot {
                     // update the list property in the main thread
                     DispatchQueue.main.async {
@@ -64,13 +65,13 @@ class viewTradePostModel: ObservableObject {
                         self.tradePostList = snapshot.documents.map { tradePost in
                             // create a user item for each doc returned
                             return TradePost(id: tradePost.documentID,
-                                             title: tradePost["name"] as? String ?? "",
-                                             location: tradePost["info"] as? String ?? "",
-                                             plantName: tradePost["uid"] as? String ?? "",
-                                             username: tradePost["uid"] as? String ?? "",
-                                             plantID: tradePost["uid"] as? String ?? "",
+                                             title: tradePost["title"] as? String ?? "",
+                                             location: tradePost["location"] as? String ?? "",
+                                             plantName: tradePost["plantName"] as? String ?? "",
+                                             username: tradePost["username"] as? String ?? "",
+                                             plantID: tradePost["plantID"] as? String ?? "",
                                              uid: tradePost["uid"] as? String ?? "",
-                                             isFree: tradePost["uid"] as? Bool ?? false)
+                                             isFree: (tradePost["isFree"] != nil) )
                         }
                     }
                 }

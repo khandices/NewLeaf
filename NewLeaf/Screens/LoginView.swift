@@ -49,7 +49,6 @@ struct LoginView: View {
                     Button("Log in") {
                         withAnimation {
                             loginUser()
-                            print("Navigating to Homepage")
                         }
                     }
                      .padding(.vertical, 10)

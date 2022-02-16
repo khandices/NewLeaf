@@ -13,70 +13,76 @@ struct TradePostFormView: View {
     @EnvironmentObject var currentUser: ViewUserProfileModel
     
     @ObservedObject var tradeModel = viewTradePostModel()
-    @ObservedObject var plantCardModel = viewPlantCardModel()
+    @ObservedObject var plantInfo = viewPlantCardModel()
     
     @State private var selectedPlantForTrade = ""
     @State private var tradepostTitle = ""
     @State private var notFreeTrade: Bool = true
     @State private var tradeUserWants = ""
+    @State var selectedPlantID = ""
     
-//    let plantList = currentUser.currentUser.plantCards
+    init() {
+        plantInfo.getAllPlantCards()
+    }
     
-    let plantList = PlantDataLoader().plantData
+    func getPlantInfo(plantName: String){
+        for plant in plantInfo.plantCardList {
+            if plant.name == plantName {
+                self.selectedPlantID = plant.id
+            }
+        }
+
+    }
 
     @State private var selectedPlant = ""
     @State var selectedPlantInfo = ""
-
-//    func getPlantInfo(plantName: String){
-//        for plant in plantList {
-//            if plant.name == plantName {
-//                self.selectedPlantForTrade = plant
-//            }
-//        }
-
-//    }
     
-    
+    let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
     
     var body: some View {
-            VStack{
-                Form ( content: {
+        ScrollView {
+            VStack {
+                Section {
                     TextField("Title", text: $tradepostTitle)
                     //   need to pull from currentUser plantCards
+                } .padding(12)
+                .background(lightGreyColor)
+                Section {
+                    Text("Which plant did you want to trade?")
                     Picker(selection: $selectedPlantForTrade,
                            label: Text("Which plant did you want to trade?"),
                            content: {
-                        Text("Plant1").tag("Plant1")
-                        Text("Plant2").tag("Plant2")
-                        Text("Plant3").tag("Plant3")
-                    })
-                    Section {
-                        Text("Is this a free trade?")
-                        Picker(selection: $notFreeTrade,
-                               label: Text("Is this a free trade?"),
-                               content: {
-                            Text("Yes").tag(false)
-                            Text("No").tag(true)
-                        })
-                            .pickerStyle(.segmented)
-                    }
+                        ForEach(plantInfo.plantCardList) { plant in
+                            if plant.uid == currentUser.currentUser.id {
+                            Text(plant.name).tag(plant.name)
+                            }
+                        }
+                    }).pickerStyle(WheelPickerStyle())
+                    Text("You selected: \(selectedPlantForTrade)")
+                }
+                Section {
+                    Text("Is this a free trade?")
+                    Picker(selection: $notFreeTrade,
+                           label: Text("Is this a free trade?"),
+                           content: {
+                        Text("Yes").tag(false)
+                        Text("No").tag(true)
+                    }).pickerStyle(SegmentedPickerStyle())
+                }
                     
-                    if notFreeTrade {
-                        //  need to pull plant names from JSON  file
-                        Picker(selection: $tradeUserWants,
-                               label: Text("Which plant do you want to trade for?"),
-                               content: {
-                            Text("Plant1").tag("Plant1")
-                            Text("Plant2").tag("Plant2")
-                            Text("Plant3").tag("Plant3")
-                        })
-                    }
-                    
-                })
-                    .navigationTitle("Create Trade")
-                
+//                    if notFreeTrade {
+//                        //  need to pull plant names from JSON  file
+//                        Picker(selection: $tradeUserWants,
+//                               label: Text("Which plant do you want to trade for?"),
+//                               content: {
+//                            Text("Plant1").tag("Plant1")
+//                            Text("Plant2").tag("Plant2")
+//                            Text("Plant3").tag("Plant3")
+//                        })
+//                    }
                 Button {
-//                    tradeModel.addTradePost(title: tradepostTitle, location: currentUser.currentUser.location, plantName: selectedPlantForTrade, username: currentUser.currentUser.username, plantID: String, uid: currentUser.currentUser.id, isFree: notFreeTrade)
+                    getPlantInfo(plantName: selectedPlantForTrade)
+                    tradeModel.addTradePost(title: tradepostTitle, location: currentUser.currentUser.location, plantName: selectedPlantForTrade, username: currentUser.currentUser.username, plantID: selectedPlantID, uid: currentUser.currentUser.id, isFree: notFreeTrade)
                 } label: {
                     HStack {
                         Spacer()
@@ -88,9 +94,14 @@ struct TradePostFormView: View {
                     } .background(Color.green)
                         .frame(width: 200)
                         .cornerRadius(10)
-                        .offset(y: -200)
+                    
+                Text(tradeModel.successMessage)
+                        .foregroundColor(.red)
                 }
             }
+            .padding()
+            .navigationTitle("Create Trade")
+        }
     }
 }
 
