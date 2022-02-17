@@ -101,12 +101,8 @@ struct PlantCardFormView: View {
                         
                 }
                 .padding()
-//                .background(Color(.init(white: 0, alpha: 0.05)))
-//                        .ignoresSafeArea()
             }
-//            .navigationTitle("Create your Plant card")
-//            .background(Color(.init(white:0, alpha: 0.05))
-//                            .ignoresSafeArea())
+
         
     
     }

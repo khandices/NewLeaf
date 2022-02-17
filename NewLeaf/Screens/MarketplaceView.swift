@@ -36,19 +36,6 @@ struct MarketplaceView: View {
             }
     }
 }
-//        ScrollView {
-//            VStack {
-//                Text("Marketplace Timeline placeholder")
-//                List {
-//                    Text("Hello")
-//                    Text("Testing")
-//                }
-
-//            }
-//
-//        }
-//        .navigationBarTitle("Trading Post")
-//    }
     
 
 struct MarketplaceView_Previews: PreviewProvider {

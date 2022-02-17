@@ -34,7 +34,7 @@ struct UserProfileView: View {
                 NavigationLink(destination: TradePostFormView().environmentObject(currentUser), isActive: $tradePostActive) {
                     EmptyView()
                 }
-                NavigationLink(destination: EditUserView(nBio: currentUser.currentUser.bio, nLocation: currentUser.currentUser.location, nUsername: currentUser.currentUser.username), isActive: $editUserActive) {
+                NavigationLink(destination: EditUserView(nBio: currentUser.currentUser.bio, nLocation: currentUser.currentUser.location, nUsername: currentUser.currentUser.username).environmentObject(currentUser), isActive: $editUserActive) {
                     EmptyView()
                 }
                 VStack{
@@ -57,27 +57,6 @@ struct UserProfileView: View {
                                 Text(plant.info)
                             }
                         }
-                }
-
-//                HStack {
-//                    // use READ all request of plant Cards under current userID
-//                    List(plantInfo.plantList) {plant in
-//                            Text(plant.name)
-//                            Text(plant.info)
-//                        }
-//                    }
-//                    Image("NewLeaf (2)")
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fit)
-//                        .frame(height: 125)
-//                    Image("NewLeaf (2)")
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fit)
-//                        .frame(height: 125)
-//                    Image("NewLeaf (2)")
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fit)
-//                        .frame(height: 125)
                 }
                 .padding()
                 .toolbar {

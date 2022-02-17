@@ -79,7 +79,6 @@ struct LoginView: View {
     private func loginUser() {
         Auth.auth().signIn(withEmail: userEmail, password: userPassword) { result, error in
             if let error = error {
-                print("Failed to login user:" , error)
                 self.loginStatusMessage = "Failed to login user: \(error)"
                 return
             } else {

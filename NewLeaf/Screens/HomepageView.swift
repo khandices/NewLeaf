@@ -75,9 +75,7 @@ struct HomepageView: View {
     @EnvironmentObject var viewRouter: ViewRouter
 
     @State private var clickedLogout: Bool = false
-//    func signoutUser() {
-//        viewRouter.currentPage = .page1
-//    }
+
     
     var body: some View {
         NavigationView{

@@ -104,7 +104,7 @@ struct TradePostFormView: View {
             .navigationTitle("Create Trade")
         }
     }
-}
+
 
 
 
