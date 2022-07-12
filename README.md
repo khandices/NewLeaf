@@ -14,3 +14,7 @@ In order to view this project, you need to follow these steps:
 
 For a Video Demo please see below link:
 https://www.canva.com/design/DAE6ggtTodA/bvEkWOHKnTiMg_Z3o4AHmw/view?utm_content=DAE6ggtTodA&utm_campaign=designshare&utm_medium=link&utm_source=publishpresent
+
+
+Log in Screen:
+![Simulator Screen Shot - iPhone 13 - 2022-02-17 at 09 42 34](https://user-images.githubusercontent.com/80737584/178616880-0d68cf01-5a36-44b8-bce8-3702828e64c1.png)
