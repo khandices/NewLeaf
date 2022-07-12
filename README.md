@@ -14,17 +14,9 @@
 4. Save the file GoogleService-Info.plist (firebase iOS config file) to the root of the project.
 5. Run the simulator in Iphone 13
 
-## For a Video Demo please see below link:
-https://www.canva.com/design/DAE6ggtTodA/bvEkWOHKnTiMg_Z3o4AHmw/view?utm_content=DAE6ggtTodA&utm_campaign=designshare&utm_medium=link&utm_source=publishpresent
-
-
+## Video Demo:
 
 https://user-images.githubusercontent.com/80737584/178617947-fd84772a-35c2-49fc-b044-04377936ff69.mp4
 
 
 
-
-**Log in Screen:**
-
-
-![Simulator Screen Shot - iPhone 13 - 2022-02-17 at 09 42 34](https://user-images.githubusercontent.com/80737584/178617300-244ec69a-5a12-402f-bf65-930b823e870e.jpeg)
