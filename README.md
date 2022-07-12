@@ -17,4 +17,5 @@ https://www.canva.com/design/DAE6ggtTodA/bvEkWOHKnTiMg_Z3o4AHmw/view?utm_content
 
 
 Log in Screen:
-![Simulator Screen Shot - iPhone 13 - 2022-02-17 at 09 42 34](https://user-images.githubusercontent.com/80737584/178616880-0d68cf01-5a36-44b8-bce8-3702828e64c1.png)
+
+![Simulator Screen Shot - iPhone 13 - 2022-02-17 at 09 42 34](https://user-images.githubusercontent.com/80737584/178617122-21d9aa81-2caa-49bc-bcc0-554530cb560c.png)
